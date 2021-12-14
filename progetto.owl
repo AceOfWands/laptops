@@ -1410,6 +1410,16 @@
     
 
 
+    <!-- http://www.unina.it/user/andre.postiglione/laptops#Display_17.3inch_HD+_TN -->
+
+    <owl:NamedIndividual rdf:about="http://www.unina.it/user/andre.postiglione/laptops#Display_17.3inch_HD+_TN">
+        <rdf:type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#TN_display"/>
+        <has_resolution rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Screen_resolution_HD+"/>
+        <has_diagonal_size rdf:datatype="http://www.unina.it/user/andre.postiglione/laptops#inches">17,3</has_diagonal_size>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.unina.it/user/andre.postiglione/laptops#Display_17.3inch_FHD_IPS -->
 
     <owl:NamedIndividual rdf:about="http://www.unina.it/user/andre.postiglione/laptops#Display_17.3inch_FHD_IPS">
@@ -3603,6 +3613,15 @@
     
 
 
+    <!-- http://www.unina.it/user/andre.postiglione/laptops#HDD_1TB -->
+
+    <owl:NamedIndividual rdf:about="http://www.unina.it/user/andre.postiglione/laptops#HDD_1TB">
+        <rdf:type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Optical_drive"/>
+        <has_capacity rdf:datatype="http://www.unina.it/user/andre.postiglione/laptops#gigabytes">1024</has_capacity>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.unina.it/user/andre.postiglione/laptops#SSD_1TB -->
 
     <owl:NamedIndividual rdf:about="http://www.unina.it/user/andre.postiglione/laptops#SSD_1TB">
@@ -3795,46 +3814,48 @@
         <has_capacity rdf:datatype="http://www.unina.it/user/andre.postiglione/laptops#gigabytes">64</has_capacity>
     </owl:NamedIndividual>
     
-    <!-- new -->
+    
 
-    <!-- http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA -->
+    <!-- http://www.unina.it/user/andre.postiglione/laptops#Laptop_17-ca2029nf -->
 
-    <owl:NamedIndividual rdf:about="http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA">
+    <owl:NamedIndividual rdf:about="http://www.unina.it/user/andre.postiglione/laptops#Laptop_17-ca2029nf">
         <rdf:type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Laptop"/>
-        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Battery_47Wh"/>
-        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#CPU_AMD_A4_9120C"/>
+        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Battery_41Wh"/>
+        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#CPU_AMD_Athlon_Silver_3050U"/>
         <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Device_touchpad"/>
         <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Device_webcam"/>
-        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Display_11.6inch_HD_TN"/>
-        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#GPU_AMD_Radeon_R4"/>
+        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Display_17.3inch_HD+_TN"/>
+        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#GPU_AMD_Radeon_RX_Vega_3"/>
         <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Keyboard_QWERTY"/>
-        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#RAM_LPDDR4_1866MHz_4GB"/>
-        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#SSD_32GB"/>
-        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA_motherboard"/>
+        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#RAM_DDR4_2400MHz_8GB_SODIMM"/>
+        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#HDD_1TB"/>
+        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Laptop_17-ca2029nf_motherboard"/>
         <produced_by rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Manufacturer_HP"/>
-        <run rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#OS_Chrome_OS"/>
+        <run rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#OS_Windows_10_Home"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA_motherboard -->
+    <!-- http://www.unina.it/user/andre.postiglione/laptops#Laptop_17-ca2029nf_motherboard -->
 
-    <owl:NamedIndividual rdf:about="http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA_motherboard">
+    <owl:NamedIndividual rdf:about="http://www.unina.it/user/andre.postiglione/laptops#Laptop_17-ca2029nf_motherboard">
         <rdf:type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Motherboard"/>
         <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Module_Bluetooth_4.2"/>
         <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Module_WiFi_5"/>
         <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Module_SD_SDHC_SDXC_card_reader"/>
-        <has_port rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA_motherboard_ports_group_1"/>
-        <has_port rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA_motherboard_ports_group_2"/>
-        <has_port rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA_motherboard_ports_group_3"/>
-        <has_port rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA_motherboard_ports_group_4"/>
+        <has_port rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Laptop_17-ca2029nf_motherboard_ports_group_1"/>
+        <has_port rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Laptop_17-ca2029nf_motherboard_ports_group_2"/>
+        <has_port rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Laptop_17-ca2029nf_motherboard_ports_group_3"/>
+        <has_port rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Laptop_17-ca2029nf_motherboard_ports_group_4"/>
+        <has_port rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Laptop_17-ca2029nf_motherboard_ports_group_5"/>
+        <has_port rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Laptop_17-ca2029nf_motherboard_ports_group_6"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA_motherboard_ports_group_1 -->
+    <!-- http://www.unina.it/user/andre.postiglione/laptops#Laptop_17-ca2029nf_motherboard_ports_group_1 -->
 
-    <owl:NamedIndividual rdf:about="http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA_motherboard_ports_group_1">
+    <owl:NamedIndividual rdf:about="http://www.unina.it/user/andre.postiglione/laptops#Laptop_17-ca2029nf_motherboard_ports_group_1">
         <rdf:type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Ports_group"/>
         <has_slots_type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Port_output_audio_mini_jack"/>
         <has_number_of_slots rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</has_number_of_slots>
@@ -3842,9 +3863,9 @@
     
 
 
-    <!-- http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA_motherboard_ports_group_2 -->
+    <!-- http://www.unina.it/user/andre.postiglione/laptops#Laptop_17-ca2029nf_motherboard_ports_group_2 -->
 
-    <owl:NamedIndividual rdf:about="http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA_motherboard_ports_group_2">
+    <owl:NamedIndividual rdf:about="http://www.unina.it/user/andre.postiglione/laptops#Laptop_17-ca2029nf_motherboard_ports_group_2">
         <rdf:type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Ports_group"/>
         <has_slots_type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Port_input_audio_mini_jack"/>
         <has_number_of_slots rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</has_number_of_slots>
@@ -3852,25 +3873,45 @@
     
 
 
-    <!-- http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA_motherboard_ports_group_3 -->
+    <!-- http://www.unina.it/user/andre.postiglione/laptops#Laptop_17-ca2029nf_motherboard_ports_group_3 -->
 
-    <owl:NamedIndividual rdf:about="http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA_motherboard_ports_group_3">
+    <owl:NamedIndividual rdf:about="http://www.unina.it/user/andre.postiglione/laptops#Laptop_17-ca2029nf_motherboard_ports_group_3">
         <rdf:type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Ports_group"/>
-        <has_slots_type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Port_USB_typeA_2.0"/>
+        <has_slots_type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Port_USB_typeA_3.2"/>
         <has_number_of_slots rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</has_number_of_slots>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA_motherboard_ports_group_4 -->
+    <!-- http://www.unina.it/user/andre.postiglione/laptops#Laptop_17-ca2029nf_motherboard_ports_group_4 -->
 
-    <owl:NamedIndividual rdf:about="http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA_motherboard_ports_group_4">
+    <owl:NamedIndividual rdf:about="http://www.unina.it/user/andre.postiglione/laptops#Laptop_17-ca2029nf_motherboard_ports_group_4">
         <rdf:type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Ports_group"/>
-        <has_slots_type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Port_USB_typeC_3.2"/>
+        <has_slots_type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Port_USB_typeA_2.0"/>
+        <has_number_of_slots rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</has_number_of_slots>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unina.it/user/andre.postiglione/laptops#Laptop_17-ca2029nf_motherboard_ports_group_5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.unina.it/user/andre.postiglione/laptops#Laptop_17-ca2029nf_motherboard_ports_group_5">
+        <rdf:type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Ports_group"/>
+        <has_slots_type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Port_HDMI"/>
+        <has_number_of_slots rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</has_number_of_slots>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unina.it/user/andre.postiglione/laptops#Laptop_17-ca2029nf_motherboard_ports_group_6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.unina.it/user/andre.postiglione/laptops#Laptop_17-ca2029nf_motherboard_ports_group_6">
+        <rdf:type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Ports_group"/>
+        <has_slots_type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Port_Ethernet"/>
         <has_number_of_slots rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</has_number_of_slots>
     </owl:NamedIndividual>
 
-    <!-- old -->
+    
 
     <!-- http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA -->
 
