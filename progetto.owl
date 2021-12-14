@@ -1456,9 +1456,9 @@
     
 
 
-    <!-- http://www.unina.it/user/andre.postiglione/laptops#GPU_Intel_Iris_Xe -->
+    <!-- http://www.unina.it/user/andre.postiglione/laptops#GPU_Intel_Iris_Xe_Graphics_G7 -->
 
-    <owl:NamedIndividual rdf:about="http://www.unina.it/user/andre.postiglione/laptops#GPU_Intel_Iris_Xe">
+    <owl:NamedIndividual rdf:about="http://www.unina.it/user/andre.postiglione/laptops#GPU_Intel_Iris_Xe_Graphics_G7">
         <rdf:type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Integrated_graphics_card"/>
         <produced_by rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Manufacturer_Intel"/>
     </owl:NamedIndividual>
@@ -1599,7 +1599,7 @@
         <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Device_touchpad"/>
         <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Device_webcam"/>
         <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Display_14inch_FHD_IPS"/>
-        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#GPU_Intel_Iris_Xe"/>
+        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#GPU_Intel_Iris_Xe_Graphics_G7"/>
         <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Keyboard_QWERTY"/>
         <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Laptop_20TA0025IX_motherboard"/>
         <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#RAM_DDR4_3200MHz_8GB_SODIMM"/>
@@ -2672,7 +2672,7 @@
         <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Device_touchpad"/>
         <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Device_webcam"/>
         <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Display_13.9inch_3K_IPS"/>
-        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#GPU_Intel_Iris_Xe"/>
+        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#GPU_Intel_Iris_Xe_Graphics_G7"/>
         <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Keyboard_QWERTY"/>
         <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Laptop_UX393EA-HK001R_motherboard"/>
         <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#RAM_LPDDR4X_4266MHz_16GB"/>
@@ -2769,7 +2769,7 @@
         <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Device_touchpad"/>
         <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Device_webcam"/>
         <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Display_14inch_FHD_IPS"/>
-        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#GPU_Intel_Iris_Xe"/>
+        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#GPU_Intel_Iris_Xe_Graphics_G7"/>
         <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Keyboard_QWERTY"/>
         <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Laptop_UX482EA-HY777TS_motherboard"/>
         <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#RAM_LPDDR4X_4266MHz_16GB"/>
@@ -3870,6 +3870,81 @@
         <has_number_of_slots rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</has_number_of_slots>
     </owl:NamedIndividual>
 
+    <!-- old -->
+
+    <!-- http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA -->
+
+    <owl:NamedIndividual rdf:about="http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA">
+        <rdf:type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Laptop"/>
+        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Battery_47Wh"/>
+        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#CPU_AMD_A4_9120C"/>
+        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Device_touchpad"/>
+        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Device_webcam"/>
+        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Display_11.6inch_HD_TN"/>
+        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#GPU_AMD_Radeon_R4"/>
+        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Keyboard_QWERTY"/>
+        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#RAM_LPDDR4_1866MHz_4GB"/>
+        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#SSD_32GB"/>
+        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA_motherboard"/>
+        <produced_by rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Manufacturer_HP"/>
+        <run rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#OS_Chrome_OS"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA_motherboard -->
+
+    <owl:NamedIndividual rdf:about="http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA_motherboard">
+        <rdf:type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Motherboard"/>
+        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Module_Bluetooth_4.2"/>
+        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Module_WiFi_5"/>
+        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Module_SD_SDHC_SDXC_card_reader"/>
+        <has_port rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA_motherboard_ports_group_1"/>
+        <has_port rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA_motherboard_ports_group_2"/>
+        <has_port rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA_motherboard_ports_group_3"/>
+        <has_port rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA_motherboard_ports_group_4"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA_motherboard_ports_group_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA_motherboard_ports_group_1">
+        <rdf:type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Ports_group"/>
+        <has_slots_type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Port_output_audio_mini_jack"/>
+        <has_number_of_slots rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</has_number_of_slots>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA_motherboard_ports_group_2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA_motherboard_ports_group_2">
+        <rdf:type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Ports_group"/>
+        <has_slots_type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Port_input_audio_mini_jack"/>
+        <has_number_of_slots rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</has_number_of_slots>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA_motherboard_ports_group_3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA_motherboard_ports_group_3">
+        <rdf:type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Ports_group"/>
+        <has_slots_type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Port_USB_typeA_2.0"/>
+        <has_number_of_slots rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</has_number_of_slots>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA_motherboard_ports_group_4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.unina.it/user/andre.postiglione/laptops#Laptop_436C7UT#ABA_motherboard_ports_group_4">
+        <rdf:type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Ports_group"/>
+        <has_slots_type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Port_USB_typeC_3.2"/>
+        <has_number_of_slots rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</has_number_of_slots>
+    </owl:NamedIndividual>
+
     
 
     <!-- http://www.unina.it/user/andre.postiglione/laptops#Laptop_15s-eq2007sl -->
@@ -4334,7 +4409,7 @@
         <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Device_touchpad"/>
         <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Device_webcam"/>
         <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Display_15.6inch_FHD_IPS"/>
-        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#GPU_Intel_Iris_Xe"/>
+        <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#GPU_Intel_Iris_Xe_Graphics_G7"/>
         <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Keyboard_QWERTY"/>
         <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#RAM_DDR4_2666MHz_16GB_SODIMM"/>
         <has rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#SSD_256GB"/>
