@@ -3688,6 +3688,17 @@
     
 
 
+    <!-- http://www.unina.it/user/andre.postiglione/laptops#RAM_DDR4_2400MHz_8GB -->
+
+    <owl:NamedIndividual rdf:about="http://www.unina.it/user/andre.postiglione/laptops#RAM_DDR4_2400MHz_8GB">
+        <rdf:type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#DDR4_memory_module"/>
+        <rdf:type rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Soldered_memory_module"/>
+        <has_capacity rdf:datatype="http://www.unina.it/user/andre.postiglione/laptops#gigabytes">8</has_capacity>
+        <has_frequency rdf:datatype="http://www.unina.it/user/andre.postiglione/laptops#megahertz">2400</has_frequency>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.unina.it/user/andre.postiglione/laptops#RAM_DDR4_2400MHz_8GB_SODIMM -->
 
     <owl:NamedIndividual rdf:about="http://www.unina.it/user/andre.postiglione/laptops#RAM_DDR4_2400MHz_8GB_SODIMM">
@@ -4107,9 +4118,6 @@
         <has_port rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Laptop_53010TLW_motherboard_ports_group_1"/>
         <has_port rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Laptop_53010TLW_motherboard_ports_group_2"/>
         <has_port rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Laptop_53010TLW_motherboard_ports_group_3"/>
-        <has_port rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Laptop_53010TLW_motherboard_ports_group_4"/>
-        <has_port rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Laptop_53010TLW_motherboard_ports_group_5"/>
-        <has_port rdf:resource="http://www.unina.it/user/andre.postiglione/laptops#Laptop_53010TLW_motherboard_ports_group_6"/>
     </owl:NamedIndividual>
     
 
