@@ -7,7 +7,7 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:laptops="https://aceofwands.github.io/laptops#">
-    <owl:Ontology rdf:about="https://aceofwands.github.io/laptops"/>
+    <owl:Ontology rdf:about="https://aceofwands.github.io/laptops" rdfs:label="Laptop models ontology" />
     
 
 

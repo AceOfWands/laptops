@@ -1,0 +1,3435 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Laptop models ontology</title>
+    <style>
+        #pylode {
+            position: fixed;
+            top: 130px;
+            left: -80px;
+            font-size: small;
+            transform: rotate(-90deg);
+            color: grey;
+        }
+        #pylode a {
+            font-size: 2em;
+            font-weight: bold;
+            text-decoration: none;
+            color: #005A9C;
+        }
+        #pylode a:hover {
+            color: #333;
+        }
+        #pylode #p {
+            color: #329545;
+        }
+        #pylode #y {
+            color: #f9cb33;
+        }
+        #pylode #version {
+            font-size: 1.0em;
+        }
+
+        .cardinality {
+            font-style: italic;
+            color: #aa00aa;
+        }
+
+        dl {
+            /*border: 1px solid navy;*/
+            /*padding:5px;*/
+        }
+
+        dt {
+            font-weight: bold;
+            padding: 0;
+        }
+
+        dd {
+            margin-bottom: 10px;
+            padding-top: 7px;
+        }
+
+        #metadata ul,
+        #classes ul {
+            list-style-type: none;
+        }
+
+        #metadata ul li,
+        #classes ul li {
+            margin-left: -40px;
+        }
+
+        ul.hlist {
+            list-style-type: none;
+            border: 1px solid navy;
+            padding:5px;
+            background-color: #F4FFFF;
+        }
+
+        ul.hierarchy {
+            border: 1px solid navy;
+            padding: 5px 25px 5px 25px;
+            background-color: #F4FFFF;
+        }
+
+
+        ul.hlist li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .entity {
+            border: 1px solid navy;
+            margin:5px 0 5px 0;
+            padding: 5px;
+        }
+
+        .entity th {
+            width: 150px;
+            vertical-align: top;
+        }
+
+        .entity th,
+        .entity td {
+            padding-bottom: 20px;
+        }
+
+        .entity table th {
+            text-align: left;
+        }
+
+        section#overview img {
+            max-width: 1000px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            text-align: left
+        }
+        h1, h2, h3 {
+            color: #005A9C; background: white
+        }
+        h1 {
+            font: 170% sans-serif;
+            line-height: 110%;
+        }
+        h2 {
+            font: 140% sans-serif;
+            margin-top:40px;
+        }
+        h3 {
+            font: 120% sans-serif;
+            margin-top: 20px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid navy;
+        }
+        h4 { font: bold 100% sans-serif }
+        h5 { font: italic 100% sans-serif }
+        h6 { font: small-caps 100% sans-serif }
+
+        body {
+            padding: 2em 70px 2em 70px;
+            margin: 0;
+            font-family: sans-serif;
+            color: black;
+            background: white;
+            background-position: top left;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            text-align: justify;
+        }
+
+        section {
+            max-width: 1500px;
+        }
+
+        .figure {
+            margin-bottom: 20px;
+        }
+
+        :link { color: #00C; background: transparent }
+        :visited { color: #609; background: transparent }
+        a:active { color: #C00; background: transparent }
+
+        .sup-c,
+        .sup-op,
+        .sup-fp,
+        .sup-dp,
+        .sup-ap,
+        .sup-p,
+        .sup-ni,
+        .sup-con,
+        .sup-col {
+            cursor:help;
+        }
+
+        .sup-c {
+            color:orange;
+        }
+
+        .sup-op {
+            color:navy;
+        }
+
+        .sup-fp {
+            color:lightskyblue;
+        }
+
+        .sup-dp {
+            color:green;
+        }
+
+        .sup-ap {
+            color:darkred;
+        }
+
+        .sup-p {
+            color:black;
+        }
+
+        .sup-ni {
+            color:brown;
+        }
+
+        .sup-con {
+            color:orange;
+        }
+
+        .sup-col {
+            color:darkred;
+        }
+
+        sup {
+            margin-left: -3px;
+        }
+        code {
+            font-size: large;
+            color: darkred;
+        }
+
+        /* less prominent links for properties */
+        .proplink {
+            color: #336;
+            text-decoration: none;
+        }
+
+#toc {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    height: 100%;
+    overflow-y: auto;
+    padding: 10px;
+    border: solid 1px navy;
+    font-size: small;
+    width: 180px;
+}
+#toc h3 {
+    margin-top: 5px;
+}
+
+#toc ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#toc .first > li {
+    margin-top: 5px;
+}
+
+#toc .second,
+#toc .third {
+    padding-left: 10px;
+}
+
+#content {
+    width: calc(100% - 150px);
+}
+
+.hover_property {
+    cursor: help;
+    text-decoration: none;
+    border-bottom: dashed 1px;
+}
+
+.setclass {
+    list-style-type: none;
+}
+	</style>
+    <link href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABhklEQVQ4jbWPzStEURjG3yQLirlGKUnKFO45Z+SjmXvnnmthQcpCoVhYmD/AwmJiI3OvZuZc2U3UlKU0/gAslMw9JgvhHxAr2fko7r0jHSsl+TgbTz2Lt5731/MASEiJW9ONml2QyX6rsGalmnT74v8BDf12hxJfpV8d1uwNKUBYszabdFv84L8B9X0rESVmmUup2fme0cVhJWaZHw4NWL1SewEAfDe6H3Dy6Ll456WEJsRZS630MwCAOI20ei5OBpxse5zcBZw8eS4uPpfIuDiCainIg9umBCU0GZzgLZ9Hn31OgoATL+CkLDGB5H1OKj4nFd/FBxUXJ0UZNb4edw/6nLyJXaj5FeCVyPLNIVmYK8TG1IwWb16L1gEACAFV90ftoT8bdOX0EeyY99gxBXZMgRz6qGb1KantAACI0UvE6F5XJqEjpsdURouI0Vt5gGOUkUNnPu7ObGIIMfNaGqDmjDRi9FZldF1lRgYzeqUyeoiY4ag5Iy3RgOYRM8+/M2bG8efsO4hGrpmJseyMAAAAAElFTkSuQmCC" rel="icon" sizes="16x16" type="image/png">
+    <link href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAC40lEQVRYhe2UT0hUQRzHp6Iss1B3VZKIDbbdfW9mnoi4f3zzjkJQeOgS0SEIb1EWBGGlLLu460zQPQM1unUIIjA6rfpm6ZAhHjoIRVQUFUlEbG+euTsdXG1d3VL3bVD4g+9h+L35fT/8fvN7ADgY9aHY5fpIvK82HO9ysu66wxWOzbkjcekKx0a2ALYA/n2AGi3a6ArFezcidziecQygNhhrcUficjP6PwBqtGijKxy/thnVBePHywYoDsFhl53GV8SEcsTx4usCMLUewTVpc23BNvEzm6Neyf1+KcG2vwqwUjgrOJq2JmHftwmkVBRGTvncFodnbI7vChO/FRznCmHsNM7aHM9Yk7Df5iqsLMw9sMNOK2g+jS4IEz0UJv4iuJZb2RltWnB4UZqH6ioGAgAAGe5vtiZhtzDx7OoRadLmeM7m6IRjhnLMW2Vx1bA5GhAmnhIcz6/xNj4Ujsky8UspwfayjDPjsF2Y6L7N8Vzx/BfP+KPg6LbgSqd8DnfJW2CnbaLhfH5ephpqygJYvQU4Z3P82TLRsDDhUTnmrSq+Y3N0Mg+Xldy/zwEAnLMWZ3pHpNExmfLs/t0dOdVcbT0JeKxUwFP2VljjqiE47Jp53LTXNxhsUZjerTByXWX6VZWRs/4bIQ2ACv+UAomgDzLCISNZxAxZKMhIDjLy1JfsaK+I+eGBUBNk5E2x8RogX/PdcDZUqieWTSh5D6nOVKqfhoycUmlHFFIyu5RXqf7AcQDISCpv/tqbMBqK883RtmpISRoxQyJKPgGn3wNk5NEigDFa6hslqV/Kj+FdBQD0bshIDlKSLlVcoWQo36UhR80BAMB73lulMn0EMpJTqD6qJiOt3mho/8GbkT2BZNgDB/V+RI0fkOrT3kRIVQbaDizJm2hdNbINBxwk5xAj3yEjuV9rZ1iIkgxixkLBA83mz8uCjLwoGwAx0vOnFSy5mtR4VTaAQvVORMnwZgSpzkrV/QmdE2tKe46+MQAAAABJRU5ErkJggg==" rel="icon" sizes="32x32" type="image/png">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <script id="schema.org" type="application/ld+json">
+[
+  {
+    "@id": "https://aceofwands.github.io/laptops",
+    "@type": [
+      "https://schema.org/DefinedTermSet"
+    ],
+    "https://schema.org/name": [
+      {
+        "@value": "Laptop models ontology"
+      }
+    ]
+  }
+]
+	</script>
+  </head>
+  <body>
+    <div id="content">
+      <div class="section" id="metadata">
+        <h1>Laptop models ontology</h1>
+        <h2>Metadata</h2>
+        <dl>
+          <div>
+            <dt>
+              <strong>IRI</strong>
+            </dt>
+            <dd>
+              <code>https://aceofwands.github.io/laptops</code>
+            </dd>
+          </div>
+          <div>
+            <dt>
+              <a class="hover_property" href="http://purl.org/dc/terms/title" title="A name given to the resource. Defined in DCMI Metadata Terms">Title</a>
+            </dt>
+            <dd><p>Laptop models ontology</p></dd>
+          </div>
+        </dl>
+      </div>
+      <div class="section" id="classes">
+        <h2>Classes</h2>
+        <div class="property entity" id="Battery">
+          <h3>Battery
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#Battery</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="#Component">Component</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li><span>
+  <span>
+    <span>
+      <a href="#has_capacity">has_capacity</a>
+      <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+    </span>some<br>
+  </span>
+</span> <span class="cardinality">and</span> <span>
+  <span>
+    <span>
+      <a href="#has_capacity">has_capacity</a>
+      <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+    </span>
+    <span>
+      <span class="cardinality">max</span>
+      <span>1</span>
+    </span><br>
+  </span>
+</span></li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Bluetooth">
+          <h3>Bluetooth
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#Bluetooth</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Module">Module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Card_reader">
+          <h3>Card_Reader
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#Card_reader</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Module">Module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Component">
+          <h3>Component
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#Component</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="#has">has</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>only<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="#produced_by">produced_by</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>only<br>
+                      </span>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="#Battery">Battery</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#Display_panel">Display_panel</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#Graphics_card">Graphics_card</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#Hard_drive">Hard_drive</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#Input_device">Input_device</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#Memory_module">Memory_module</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#Motherboard">Motherboard</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#Processor">Processor</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="DDR2_memory_module">
+          <h3>Ddr2_Memory_Module
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#DDR2_memory_module</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#SDRAM_memory_module">SDRAM_memory_module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#LPDDR2_memory_module">LPDDR2_memory_module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="DDR3_memory_module">
+          <h3>Ddr3_Memory_Module
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#DDR3_memory_module</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#SDRAM_memory_module">SDRAM_memory_module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#LPDDR3_memory_module">LPDDR3_memory_module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="DDR4_memory_module">
+          <h3>Ddr4_Memory_Module
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#DDR4_memory_module</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#SDRAM_memory_module">SDRAM_memory_module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="#LPDDR4X_memory_module">LPDDR4X_memory_module</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#LPDDR4_memory_module">LPDDR4_memory_module</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="DDR5_memory_module">
+          <h3>Ddr5_Memory_Module
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#DDR5_memory_module</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#SDRAM_memory_module">SDRAM_memory_module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="#LPDDR5X_memory_module">LPDDR5X_memory_module</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#LPDDR5_memory_module">LPDDR5_memory_module</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="DDR_memory_module">
+          <h3>Ddr_Memory_Module
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#DDR_memory_module</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#SDRAM_memory_module">SDRAM_memory_module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#LPDDR_memory_module">LPDDR_memory_module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="DIMM_memory_module">
+          <h3>Dimm_Memory_Module
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#DIMM_memory_module</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Memory_module">Memory_module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="DRAM_memory_module">
+          <h3>Dram_Memory_Module
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#DRAM_memory_module</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Memory_module">Memory_module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="#SDRAM_memory_module">SDRAM_memory_module</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#SGRAM_memory_module">SGRAM_memory_module</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Dedicated_graphics_card">
+          <h3>Dedicated_Graphics_Card
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#Dedicated_graphics_card</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2002/07/owl#equivalentClass" title="The property that determines that two given classes are equivalent, and that is used to specify datatype definitions. Defined in The OWL 2 Schema vocabulary (OWL 2)">Equivalentclass</a>
+              </th>
+              <td><span>
+  <a href="#Graphics_card">Graphics_card</a>
+  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+</span> <span class="cardinality">and</span> <span>
+  <span>
+    <span>
+      <a href="#has_dedicated">has_dedicated</a>
+      <sup class="sup-op" title="OWL Object Property">op</sup>
+    </span>some<br>
+  </span>
+</span></td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Display_panel">
+          <h3>Display_Panel
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#Display_panel</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="#Component">Component</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li><span>
+  <span>
+    <span>
+      <a href="#has_diagonal_size">has_diagonal_size</a>
+      <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+    </span>
+    <span>
+      <span class="cardinality">max</span>
+      <span>1</span>
+    </span><br>
+  </span>
+</span> <span class="cardinality">and</span> <span>
+  <span>
+    <span>
+      <a href="#has_diagonal_size">has_diagonal_size</a>
+      <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+    </span>some<br>
+  </span>
+</span></li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <span>
+                  <span>
+                    <span>
+                      <a href="#has_resolution">has_resolution</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>only<br>
+                  </span>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="#IPS_display">IPS_display</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#LTPS_display">LTPS_display</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#OLED_display">OLED_display</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#TN_display">TN_display</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="GDDR2_memory_module">
+          <h3>Gddr2_Memory_Module
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#GDDR2_memory_module</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#SGRAM_memory_module">SGRAM_memory_module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="GDDR3_memory_module">
+          <h3>Gddr3_Memory_Module
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#GDDR3_memory_module</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#SGRAM_memory_module">SGRAM_memory_module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="GDDR4_memory_module">
+          <h3>Gddr4_Memory_Module
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#GDDR4_memory_module</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#SGRAM_memory_module">SGRAM_memory_module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="GDDR5_memory_module">
+          <h3>Gddr5_Memory_Module
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#GDDR5_memory_module</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#SGRAM_memory_module">SGRAM_memory_module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="GDDR6_memory_module">
+          <h3>Gddr6_Memory_Module
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#GDDR6_memory_module</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#SGRAM_memory_module">SGRAM_memory_module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="GDDR_memory_module">
+          <h3>Gddr_Memory_Module
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#GDDR_memory_module</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#SGRAM_memory_module">SGRAM_memory_module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Graphics_card">
+          <h3>Graphics_Card
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#Graphics_card</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Component">Component</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2002/07/owl#equivalentClass" title="The property that determines that two given classes are equivalent, and that is used to specify datatype definitions. Defined in The OWL 2 Schema vocabulary (OWL 2)">Equivalentclass</a>
+              </th>
+              <td><span>
+  <a href="#Dedicated_graphics_card">Dedicated_graphics_card</a>
+  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+</span> <span class="cardinality">or</span> <span>
+  <a href="#Integrated_graphics_card">Integrated_graphics_card</a>
+  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+</span></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="#has_dedicated">has_dedicated</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>only<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="#has_frequency">has_frequency</a>
+                          <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+                        </span>only<br>
+                      </span>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Hard_drive">
+          <h3>Hard_Drive
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#Hard_drive</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="#Component">Component</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li><span>
+  <span>
+    <span>
+      <a href="#has_capacity">has_capacity</a>
+      <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+    </span>some<br>
+  </span>
+</span> <span class="cardinality">and</span> <span>
+  <span>
+    <span>
+      <a href="#has_capacity">has_capacity</a>
+      <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+    </span>
+    <span>
+      <span class="cardinality">max</span>
+      <span>1</span>
+    </span><br>
+  </span>
+</span></li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="#Optical_drive">Optical_drive</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#SSD">SSD</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#eMMC">eMMC</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="IPS_display">
+          <h3>Ips_Display
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#IPS_display</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Display_panel">Display_panel</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Input_device">
+          <h3>Input_Device
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#Input_device</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Component">Component</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Keyboard">Keyboard</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Input_port">
+          <h3>Input_Port
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#Input_port</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Port">Port</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Integrated_graphics_card">
+          <h3>Integrated_Graphics_Card
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#Integrated_graphics_card</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2002/07/owl#equivalentClass" title="The property that determines that two given classes are equivalent, and that is used to specify datatype definitions. Defined in The OWL 2 Schema vocabulary (OWL 2)">Equivalentclass</a>
+              </th>
+              <td><span>
+  <a href="#Graphics_card">Graphics_card</a>
+  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+</span> <span class="cardinality">and</span> <span>
+  <span>
+    <span>
+      <a href="#has_dedicated">has_dedicated</a>
+      <sup class="sup-op" title="OWL Object Property">op</sup>
+    </span>
+    <span>
+      <span class="cardinality">max</span>
+      <span>0</span>
+    </span><br>
+  </span>
+</span></td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Keyboard">
+          <h3>Keyboard
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#Keyboard</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Input_device">Input_device</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="LPDDR2_memory_module">
+          <h3>Lpddr2_Memory_Module
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#LPDDR2_memory_module</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#DDR2_memory_module">DDR2_memory_module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="LPDDR3_memory_module">
+          <h3>Lpddr3_Memory_Module
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#LPDDR3_memory_module</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#DDR3_memory_module">DDR3_memory_module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="LPDDR4X_memory_module">
+          <h3>Lpddr4X_Memory_Module
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#LPDDR4X_memory_module</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#DDR4_memory_module">DDR4_memory_module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="LPDDR4_memory_module">
+          <h3>Lpddr4_Memory_Module
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#LPDDR4_memory_module</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#DDR4_memory_module">DDR4_memory_module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="LPDDR5X_memory_module">
+          <h3>Lpddr5X_Memory_Module
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#LPDDR5X_memory_module</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#DDR5_memory_module">DDR5_memory_module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="LPDDR5_memory_module">
+          <h3>Lpddr5_Memory_Module
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#LPDDR5_memory_module</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#DDR5_memory_module">DDR5_memory_module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="LPDDR_memory_module">
+          <h3>Lpddr_Memory_Module
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#LPDDR_memory_module</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#DDR_memory_module">DDR_memory_module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="LTPS_display">
+          <h3>Ltps_Display
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#LTPS_display</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Display_panel">Display_panel</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Laptop">
+          <h3>Laptop
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#Laptop</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="#has">has</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>only<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="#produced_by">produced_by</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>only<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="#run">run</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>only<br>
+                      </span>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Manufacturer">
+          <h3>Manufacturer
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#Manufacturer</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Memory_module">
+          <h3>Memory_Module
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#Memory_module</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="#Component">Component</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li><span>
+  <span>
+    <span>
+      <a href="#has_capacity">has_capacity</a>
+      <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+    </span>
+    <span>
+      <span class="cardinality">max</span>
+      <span>1</span>
+    </span><br>
+  </span>
+</span> <span class="cardinality">and</span> <span>
+  <span>
+    <span>
+      <a href="#has_capacity">has_capacity</a>
+      <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+    </span>some<br>
+  </span>
+</span></li>
+                  <li><span>
+  <span>
+    <span>
+      <a href="#has_frequency">has_frequency</a>
+      <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+    </span>
+    <span>
+      <span class="cardinality">max</span>
+      <span>1</span>
+    </span><br>
+  </span>
+</span> <span class="cardinality">and</span> <span>
+  <span>
+    <span>
+      <a href="#has_frequency">has_frequency</a>
+      <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+    </span>some<br>
+  </span>
+</span></li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="#DIMM_memory_module">DIMM_memory_module</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#DRAM_memory_module">DRAM_memory_module</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#SIMM_memory_module">SIMM_memory_module</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#SO-DIMM_memory_module">SO-DIMM_memory_module</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#SRAM_memory_module">SRAM_memory_module</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#Soldered_memory_module">Soldered_memory_module</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Module">
+          <h3>Module
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#Module</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="#Bluetooth">Bluetooth</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#Card_reader">Card_reader</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#WiFi">WiFi</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Motherboard">
+          <h3>Motherboard
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#Motherboard</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Component">Component</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="OLED_display">
+          <h3>Oled_Display
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#OLED_display</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Display_panel">Display_panel</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Operating_system">
+          <h3>Operating_System
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#Operating_system</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Optical_drive">
+          <h3>Optical_Drive
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#Optical_drive</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Hard_drive">Hard_drive</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Output_port">
+          <h3>Output_Port
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#Output_port</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Port">Port</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Port">
+          <h3>Port
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#Port</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="#Input_port">Input_port</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#Output_port">Output_port</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Ports_group">
+          <h3>Ports_Group
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#Ports_group</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td><span>
+  <span>
+    <span>
+      <a href="#has_number_of_slots">has_number_of_slots</a>
+      <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+    </span>some<br>
+  </span>
+</span> <span class="cardinality">and</span> <span>
+  <span>
+    <span>
+      <a href="#has_number_of_slots">has_number_of_slots</a>
+      <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+    </span>
+    <span>
+      <span class="cardinality">max</span>
+      <span>1</span>
+    </span><br>
+  </span>
+</span></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inRangeOf" title="Inverse of rdfs:range. Defined in Ontology Documentation Profile">In Range Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#has_port">has_port</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <span>
+                  <span>
+                    <span>
+                      <a href="#has_slots_type">has_slots_type</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>only<br>
+                  </span>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Processor">
+          <h3>Processor
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#Processor</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="#Component">Component</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li><span>
+  <span>
+    <span>
+      <a href="#has_frequency">has_frequency</a>
+      <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+    </span>
+    <span>
+      <span class="cardinality">max</span>
+      <span>1</span>
+    </span><br>
+  </span>
+</span> <span class="cardinality">and</span> <span>
+  <span>
+    <span>
+      <a href="#has_frequency">has_frequency</a>
+      <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+    </span>some<br>
+  </span>
+</span></li>
+                  <li><span>
+  <span>
+    <span>
+      <a href="#has_number_of_cores">has_number_of_cores</a>
+      <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+    </span>
+    <span>
+      <span class="cardinality">max</span>
+      <span>1</span>
+    </span><br>
+  </span>
+</span> <span class="cardinality">and</span> <span>
+  <span>
+    <span>
+      <a href="#has_number_of_cores">has_number_of_cores</a>
+      <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+    </span>some<br>
+  </span>
+</span></li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="SDRAM_memory_module">
+          <h3>Sdram_Memory_Module
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#SDRAM_memory_module</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#DRAM_memory_module">DRAM_memory_module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="#DDR2_memory_module">DDR2_memory_module</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#DDR3_memory_module">DDR3_memory_module</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#DDR4_memory_module">DDR4_memory_module</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#DDR5_memory_module">DDR5_memory_module</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#DDR_memory_module">DDR_memory_module</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="SGRAM_memory_module">
+          <h3>Sgram_Memory_Module
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#SGRAM_memory_module</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#DRAM_memory_module">DRAM_memory_module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="#GDDR2_memory_module">GDDR2_memory_module</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#GDDR3_memory_module">GDDR3_memory_module</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#GDDR4_memory_module">GDDR4_memory_module</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#GDDR5_memory_module">GDDR5_memory_module</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#GDDR6_memory_module">GDDR6_memory_module</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#GDDR_memory_module">GDDR_memory_module</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="SIMM_memory_module">
+          <h3>Simm_Memory_Module
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#SIMM_memory_module</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Memory_module">Memory_module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="SO-DIMM_memory_module">
+          <h3>So-Dimm_Memory_Module
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#SO-DIMM_memory_module</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Memory_module">Memory_module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="SRAM_memory_module">
+          <h3>Sram_Memory_Module
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#SRAM_memory_module</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Memory_module">Memory_module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="SSD">
+          <h3>Ssd
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#SSD</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Hard_drive">Hard_drive</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Screen_resolution">
+          <h3>Screen_Resolution
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#Screen_resolution</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li><span>
+  <span>
+    <span>
+      <a href="#has_height">has_height</a>
+      <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+    </span>some<br>
+  </span>
+</span> <span class="cardinality">and</span> <span>
+  <span>
+    <span>
+      <a href="#has_height">has_height</a>
+      <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+    </span>
+    <span>
+      <span class="cardinality">max</span>
+      <span>1</span>
+    </span><br>
+  </span>
+</span></li>
+                  <li><span>
+  <span>
+    <span>
+      <a href="#has_width">has_width</a>
+      <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+    </span>
+    <span>
+      <span class="cardinality">max</span>
+      <span>1</span>
+    </span><br>
+  </span>
+</span> <span class="cardinality">and</span> <span>
+  <span>
+    <span>
+      <a href="#has_width">has_width</a>
+      <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+    </span>some<br>
+  </span>
+</span></li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inRangeOf" title="Inverse of rdfs:range. Defined in Ontology Documentation Profile">In Range Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#has_resolution">has_resolution</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Soldered_memory_module">
+          <h3>Soldered_Memory_Module
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#Soldered_memory_module</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Memory_module">Memory_module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="TN_display">
+          <h3>Tn_Display
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#TN_display</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Display_panel">Display_panel</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="USB">
+          <h3>Usb
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#USB</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td><span>
+  <a href="#Input_port">Input_port</a>
+  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+</span> <span class="cardinality">and</span> <span>
+  <a href="#Output_port">Output_port</a>
+  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+</span></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="#USB_2.0">USB_2.0</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#USB_3.0">USB_3.0</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#USB_3.1">USB_3.1</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#USB_3.2">USB_3.2</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#USB_type_A">USB_type_A</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#USB_type_C">USB_type_C</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="USB_2.0">
+          <h3>Usb_2.0
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#USB_2.0</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#USB">USB</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="USB_3.0">
+          <h3>Usb_3.0
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#USB_3.0</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#USB">USB</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="USB_3.1">
+          <h3>Usb_3.1
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#USB_3.1</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#USB">USB</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="USB_3.2">
+          <h3>Usb_3.2
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#USB_3.2</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#USB">USB</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="USB_type_A">
+          <h3>Usb_Type_A
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#USB_type_A</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#USB">USB</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="USB_type_C">
+          <h3>Usb_Type_C
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#USB_type_C</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#USB">USB</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="WiFi">
+          <h3>Wi Fi
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#WiFi</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Module">Module</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="eMMC">
+          <h3>e mmc
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#eMMC</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Hard_drive">Hard_drive</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <span>
+        <span>
+          <span>
+            <a href="#has_capacity">has_capacity</a>
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </span>some<br>
+        </span>
+      </span>
+      <span>
+        <span>
+          <span>
+            <a href="#has_capacity">has_capacity</a>
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </span>
+          <span>
+            <span class="cardinality">max</span>
+            <span>1</span>
+          </span><br>
+        </span>
+      </span>
+      <span>
+        <a href="#Graphics_card">Graphics_card</a>
+        <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+      </span>
+      <span>
+        <span>
+          <span>
+            <a href="#has_dedicated">has_dedicated</a>
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </span>some<br>
+        </span>
+      </span>
+      <span>
+        <span>
+          <span>
+            <a href="#has_diagonal_size">has_diagonal_size</a>
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </span>some<br>
+        </span>
+      </span>
+      <span>
+        <span>
+          <span>
+            <a href="#has_diagonal_size">has_diagonal_size</a>
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </span>
+          <span>
+            <span class="cardinality">max</span>
+            <span>1</span>
+          </span><br>
+        </span>
+      </span>
+      <span>
+        <a href="#Dedicated_graphics_card">Dedicated_graphics_card</a>
+        <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+      </span>
+      <span>
+        <a href="#Integrated_graphics_card">Integrated_graphics_card</a>
+        <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+      </span>
+      <span>
+        <span>
+          <span>
+            <a href="#has_capacity">has_capacity</a>
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </span>some<br>
+        </span>
+      </span>
+      <span>
+        <span>
+          <span>
+            <a href="#has_capacity">has_capacity</a>
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </span>
+          <span>
+            <span class="cardinality">max</span>
+            <span>1</span>
+          </span><br>
+        </span>
+      </span>
+      <span>
+        <a href="#Graphics_card">Graphics_card</a>
+        <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+      </span>
+      <span>
+        <span>
+          <span>
+            <a href="#has_dedicated">has_dedicated</a>
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </span>
+          <span>
+            <span class="cardinality">max</span>
+            <span>0</span>
+          </span><br>
+        </span>
+      </span>
+      <span>
+        <span>
+          <span>
+            <a href="#has_capacity">has_capacity</a>
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </span>some<br>
+        </span>
+      </span>
+      <span>
+        <span>
+          <span>
+            <a href="#has_capacity">has_capacity</a>
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </span>
+          <span>
+            <span class="cardinality">max</span>
+            <span>1</span>
+          </span><br>
+        </span>
+      </span>
+      <span>
+        <span>
+          <span>
+            <a href="#has_frequency">has_frequency</a>
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </span>some<br>
+        </span>
+      </span>
+      <span>
+        <span>
+          <span>
+            <a href="#has_frequency">has_frequency</a>
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </span>
+          <span>
+            <span class="cardinality">max</span>
+            <span>1</span>
+          </span><br>
+        </span>
+      </span>
+      <span>
+        <span>
+          <span>
+            <a href="#has_number_of_slots">has_number_of_slots</a>
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </span>some<br>
+        </span>
+      </span>
+      <span>
+        <span>
+          <span>
+            <a href="#has_number_of_slots">has_number_of_slots</a>
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </span>
+          <span>
+            <span class="cardinality">max</span>
+            <span>1</span>
+          </span><br>
+        </span>
+      </span>
+      <span>
+        <span>
+          <span>
+            <a href="#has_frequency">has_frequency</a>
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </span>some<br>
+        </span>
+      </span>
+      <span>
+        <span>
+          <span>
+            <a href="#has_frequency">has_frequency</a>
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </span>
+          <span>
+            <span class="cardinality">max</span>
+            <span>1</span>
+          </span><br>
+        </span>
+      </span>
+      <span>
+        <span>
+          <span>
+            <a href="#has_number_of_cores">has_number_of_cores</a>
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </span>some<br>
+        </span>
+      </span>
+      <span>
+        <span>
+          <span>
+            <a href="#has_number_of_cores">has_number_of_cores</a>
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </span>
+          <span>
+            <span class="cardinality">max</span>
+            <span>1</span>
+          </span><br>
+        </span>
+      </span>
+      <span>
+        <span>
+          <span>
+            <a href="#has_height">has_height</a>
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </span>some<br>
+        </span>
+      </span>
+      <span>
+        <span>
+          <span>
+            <a href="#has_height">has_height</a>
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </span>
+          <span>
+            <span class="cardinality">max</span>
+            <span>1</span>
+          </span><br>
+        </span>
+      </span>
+      <span>
+        <span>
+          <span>
+            <a href="#has_width">has_width</a>
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </span>some<br>
+        </span>
+      </span>
+      <span>
+        <span>
+          <span>
+            <a href="#has_width">has_width</a>
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </span>
+          <span>
+            <span class="cardinality">max</span>
+            <span>1</span>
+          </span><br>
+        </span>
+      </span>
+      <span>
+        <a href="#Input_port">Input_port</a>
+        <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+      </span>
+      <span>
+        <a href="#Output_port">Output_port</a>
+        <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+      </span>
+      <div class="section" id="objectproperties">
+        <h2>Object Properties</h2>
+        <div class="property entity" id="has">
+          <h3>has
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#has</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="has_dedicated">
+          <h3>has_dedicated
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#has_dedicated</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="has_port">
+          <h3>has_port
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#has_port</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Ports_group">Ports_group</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="has_resolution">
+          <h3>has_resolution
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#has_resolution</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Screen_resolution">Screen_resolution</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="has_slots_type">
+          <h3>has_slots_type
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#has_slots_type</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="produce">
+          <h3>produce
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#produce</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="produced_by">
+          <h3>produced_by
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#produced_by</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="run">
+          <h3>run
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#run</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="section" id="datatypeproperties">
+        <h2>Datatype Properties</h2>
+        <div class="property entity" id="has_capacity">
+          <h3>has_capacity
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#has_capacity</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="has_diagonal_size">
+          <h3>has_diagonal_size
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#has_diagonal_size</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="has_frequency">
+          <h3>has_frequency
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#has_frequency</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="has_height">
+          <h3>has_height
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#has_height</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="has_number_of_cores">
+          <h3>has_number_of_cores
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#has_number_of_cores</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="has_number_of_slots">
+          <h3>has_number_of_slots
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#has_number_of_slots</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="has_width">
+          <h3>has_width
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://aceofwands.github.io/laptops#has_width</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div id="namespaces">
+        <h2>Namespaces</h2>
+        <dl>
+          <dt id=":">:</dt>
+          <dd>
+            <code>https://aceofwands.github.io/laptops#</code>
+          </dd>
+          <dt id="dcterms">dcterms</dt>
+          <dd>
+            <code>http://purl.org/dc/terms/</code>
+          </dd>
+          <dt id="ns1">ns1</dt>
+          <dd>
+            <code>https://aceofwands.github.io/</code>
+          </dd>
+          <dt id="owl">owl</dt>
+          <dd>
+            <code>http://www.w3.org/2002/07/owl#</code>
+          </dd>
+          <dt id="rdf">rdf</dt>
+          <dd>
+            <code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code>
+          </dd>
+          <dt id="rdfs">rdfs</dt>
+          <dd>
+            <code>http://www.w3.org/2000/01/rdf-schema#</code>
+          </dd>
+          <dt id="xsd">xsd</dt>
+          <dd>
+            <code>http://www.w3.org/2001/XMLSchema#</code>
+          </dd>
+        </dl>
+      </div>
+      <div id="legend">
+        <h2>Legend</h2>
+        <table class="entity">
+          <tr>
+            <td>
+              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+            </td>
+            <td>Classes</td>
+          </tr>
+          <tr>
+            <td>
+              <sup class="sup-op" title="OWL Object Property">op</sup>
+            </td>
+            <td>Object Properties</td>
+          </tr>
+          <tr>
+            <td>
+              <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+            </td>
+            <td>Datatype Properties</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="pylode">
+      <p>made by 
+        <a href="https://github.com/rdflib/pyLODE">
+          <span id="p">p</span>
+          <span id="y">y</span>
+          <span>LODE</span>
+        </a>
+        <a href="https://github.com/rdflib/pyLODE/release/3.0.0" id="version">3.0.0</a>
+      </p>
+    </div>
+    <div id="toc">
+      <h3>Table of Contents</h3>
+      <ul class="first">
+        <li>
+          <h4>
+            <a href="#metadata">Metadata</a>
+          </h4>
+        </li>
+        <li>
+          <h4>
+            <a href="#classes">Classes</a>
+          </h4>
+          <ul class="second">
+            <li>
+              <a href="#Battery">Battery</a>
+            </li>
+            <li>
+              <a href="#Bluetooth">Bluetooth</a>
+            </li>
+            <li>
+              <a href="#Card_reader">Card_Reader</a>
+            </li>
+            <li>
+              <a href="#Component">Component</a>
+            </li>
+            <li>
+              <a href="#DDR2_memory_module">Ddr2_Memory_Module</a>
+            </li>
+            <li>
+              <a href="#DDR3_memory_module">Ddr3_Memory_Module</a>
+            </li>
+            <li>
+              <a href="#DDR4_memory_module">Ddr4_Memory_Module</a>
+            </li>
+            <li>
+              <a href="#DDR5_memory_module">Ddr5_Memory_Module</a>
+            </li>
+            <li>
+              <a href="#DDR_memory_module">Ddr_Memory_Module</a>
+            </li>
+            <li>
+              <a href="#DIMM_memory_module">Dimm_Memory_Module</a>
+            </li>
+            <li>
+              <a href="#DRAM_memory_module">Dram_Memory_Module</a>
+            </li>
+            <li>
+              <a href="#Dedicated_graphics_card">Dedicated_Graphics_Card</a>
+            </li>
+            <li>
+              <a href="#Display_panel">Display_Panel</a>
+            </li>
+            <li>
+              <a href="#GDDR2_memory_module">Gddr2_Memory_Module</a>
+            </li>
+            <li>
+              <a href="#GDDR3_memory_module">Gddr3_Memory_Module</a>
+            </li>
+            <li>
+              <a href="#GDDR4_memory_module">Gddr4_Memory_Module</a>
+            </li>
+            <li>
+              <a href="#GDDR5_memory_module">Gddr5_Memory_Module</a>
+            </li>
+            <li>
+              <a href="#GDDR6_memory_module">Gddr6_Memory_Module</a>
+            </li>
+            <li>
+              <a href="#GDDR_memory_module">Gddr_Memory_Module</a>
+            </li>
+            <li>
+              <a href="#Graphics_card">Graphics_Card</a>
+            </li>
+            <li>
+              <a href="#Hard_drive">Hard_Drive</a>
+            </li>
+            <li>
+              <a href="#IPS_display">Ips_Display</a>
+            </li>
+            <li>
+              <a href="#Input_device">Input_Device</a>
+            </li>
+            <li>
+              <a href="#Input_port">Input_Port</a>
+            </li>
+            <li>
+              <a href="#Integrated_graphics_card">Integrated_Graphics_Card</a>
+            </li>
+            <li>
+              <a href="#Keyboard">Keyboard</a>
+            </li>
+            <li>
+              <a href="#LPDDR2_memory_module">Lpddr2_Memory_Module</a>
+            </li>
+            <li>
+              <a href="#LPDDR3_memory_module">Lpddr3_Memory_Module</a>
+            </li>
+            <li>
+              <a href="#LPDDR4X_memory_module">Lpddr4X_Memory_Module</a>
+            </li>
+            <li>
+              <a href="#LPDDR4_memory_module">Lpddr4_Memory_Module</a>
+            </li>
+            <li>
+              <a href="#LPDDR5X_memory_module">Lpddr5X_Memory_Module</a>
+            </li>
+            <li>
+              <a href="#LPDDR5_memory_module">Lpddr5_Memory_Module</a>
+            </li>
+            <li>
+              <a href="#LPDDR_memory_module">Lpddr_Memory_Module</a>
+            </li>
+            <li>
+              <a href="#LTPS_display">Ltps_Display</a>
+            </li>
+            <li>
+              <a href="#Laptop">Laptop</a>
+            </li>
+            <li>
+              <a href="#Manufacturer">Manufacturer</a>
+            </li>
+            <li>
+              <a href="#Memory_module">Memory_Module</a>
+            </li>
+            <li>
+              <a href="#Module">Module</a>
+            </li>
+            <li>
+              <a href="#Motherboard">Motherboard</a>
+            </li>
+            <li>
+              <a href="#OLED_display">Oled_Display</a>
+            </li>
+            <li>
+              <a href="#Operating_system">Operating_System</a>
+            </li>
+            <li>
+              <a href="#Optical_drive">Optical_Drive</a>
+            </li>
+            <li>
+              <a href="#Output_port">Output_Port</a>
+            </li>
+            <li>
+              <a href="#Port">Port</a>
+            </li>
+            <li>
+              <a href="#Ports_group">Ports_Group</a>
+            </li>
+            <li>
+              <a href="#Processor">Processor</a>
+            </li>
+            <li>
+              <a href="#SDRAM_memory_module">Sdram_Memory_Module</a>
+            </li>
+            <li>
+              <a href="#SGRAM_memory_module">Sgram_Memory_Module</a>
+            </li>
+            <li>
+              <a href="#SIMM_memory_module">Simm_Memory_Module</a>
+            </li>
+            <li>
+              <a href="#SO-DIMM_memory_module">So-Dimm_Memory_Module</a>
+            </li>
+            <li>
+              <a href="#SRAM_memory_module">Sram_Memory_Module</a>
+            </li>
+            <li>
+              <a href="#SSD">Ssd</a>
+            </li>
+            <li>
+              <a href="#Screen_resolution">Screen_Resolution</a>
+            </li>
+            <li>
+              <a href="#Soldered_memory_module">Soldered_Memory_Module</a>
+            </li>
+            <li>
+              <a href="#TN_display">Tn_Display</a>
+            </li>
+            <li>
+              <a href="#USB">Usb</a>
+            </li>
+            <li>
+              <a href="#USB_2.0">Usb_2.0</a>
+            </li>
+            <li>
+              <a href="#USB_3.0">Usb_3.0</a>
+            </li>
+            <li>
+              <a href="#USB_3.1">Usb_3.1</a>
+            </li>
+            <li>
+              <a href="#USB_3.2">Usb_3.2</a>
+            </li>
+            <li>
+              <a href="#USB_type_A">Usb_Type_A</a>
+            </li>
+            <li>
+              <a href="#USB_type_C">Usb_Type_C</a>
+            </li>
+            <li>
+              <a href="#WiFi">Wi Fi</a>
+            </li>
+            <li>
+              <a href="#eMMC">e mmc</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h4>
+            <a href="#objectproperties">Object Properties</a>
+          </h4>
+          <ul class="second">
+            <li>
+              <a href="#has">has</a>
+            </li>
+            <li>
+              <a href="#has_dedicated">has_dedicated</a>
+            </li>
+            <li>
+              <a href="#has_port">has_port</a>
+            </li>
+            <li>
+              <a href="#has_resolution">has_resolution</a>
+            </li>
+            <li>
+              <a href="#has_slots_type">has_slots_type</a>
+            </li>
+            <li>
+              <a href="#produce">produce</a>
+            </li>
+            <li>
+              <a href="#produced_by">produced_by</a>
+            </li>
+            <li>
+              <a href="#run">run</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h4>
+            <a href="#datatypeproperties">Datatype Properties</a>
+          </h4>
+          <ul class="second">
+            <li>
+              <a href="#has_capacity">has_capacity</a>
+            </li>
+            <li>
+              <a href="#has_diagonal_size">has_diagonal_size</a>
+            </li>
+            <li>
+              <a href="#has_frequency">has_frequency</a>
+            </li>
+            <li>
+              <a href="#has_height">has_height</a>
+            </li>
+            <li>
+              <a href="#has_number_of_cores">has_number_of_cores</a>
+            </li>
+            <li>
+              <a href="#has_number_of_slots">has_number_of_slots</a>
+            </li>
+            <li>
+              <a href="#has_width">has_width</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h4>
+            <a href="#namespaces">Namespaces</a>
+          </h4>
+          <ul class="second">
+            <li>
+              <a href="#"></a>
+            </li>
+            <li>
+              <a href="#dcterms">dcterms</a>
+            </li>
+            <li>
+              <a href="#ns1">ns1</a>
+            </li>
+            <li>
+              <a href="#owl">owl</a>
+            </li>
+            <li>
+              <a href="#rdf">rdf</a>
+            </li>
+            <li>
+              <a href="#rdfs">rdfs</a>
+            </li>
+            <li>
+              <a href="#xsd">xsd</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h4>
+            <a href="#legend">Legend</a>
+          </h4>
+          <ul class="second"></ul>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
