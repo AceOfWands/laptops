@@ -25,16 +25,7 @@
     <!-- https://aceofwands.github.io/laptops#gigabytes -->
 
     <rdfs:Datatype rdf:about="https://aceofwands.github.io/laptops#gigabytes">
-        <owl:equivalentClass>
-            <rdfs:Datatype>
-                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-                <owl:withRestrictions rdf:parseType="Collection">
-                    <rdf:Description>
-                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</xsd:minExclusive>
-                    </rdf:Description>
-                </owl:withRestrictions>
-            </rdfs:Datatype>
-        </owl:equivalentClass>
+        <owl:equivalentClass rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
     </rdfs:Datatype>
     
 
@@ -76,16 +67,7 @@
     <!-- https://aceofwands.github.io/laptops#megabytes -->
 
     <rdfs:Datatype rdf:about="https://aceofwands.github.io/laptops#megabytes">
-        <owl:equivalentClass>
-            <rdfs:Datatype>
-                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-                <owl:withRestrictions rdf:parseType="Collection">
-                    <rdf:Description>
-                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</xsd:minExclusive>
-                    </rdf:Description>
-                </owl:withRestrictions>
-            </rdfs:Datatype>
-        </owl:equivalentClass>
+        <owl:equivalentClass rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
     </rdfs:Datatype>
     
 
@@ -110,16 +92,7 @@
     <!-- https://aceofwands.github.io/laptops#pixel -->
 
     <rdfs:Datatype rdf:about="https://aceofwands.github.io/laptops#pixel">
-        <owl:equivalentClass>
-            <rdfs:Datatype>
-                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-                <owl:withRestrictions rdf:parseType="Collection">
-                    <rdf:Description>
-                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</xsd:minExclusive>
-                    </rdf:Description>
-                </owl:withRestrictions>
-            </rdfs:Datatype>
-        </owl:equivalentClass>
+        <owl:equivalentClass rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
     </rdfs:Datatype>
     
 
@@ -138,23 +111,6 @@
             </rdfs:Datatype>
         </owl:equivalentClass>
     </rdfs:Datatype>
-    
-
-
-    <!-- http://www.w3.org/2001/XMLSchema#integer -->
-
-    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#integer">
-        <owl:equivalentClass>
-            <rdfs:Datatype>
-                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-                <owl:withRestrictions rdf:parseType="Collection">
-                    <rdf:Description>
-                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</xsd:minExclusive>
-                    </rdf:Description>
-                </owl:withRestrictions>
-            </rdfs:Datatype>
-        </owl:equivalentClass>
-    </rdf:Description>
     
 
 
@@ -216,7 +172,6 @@
     <!-- https://aceofwands.github.io/laptops#produce -->
 
     <owl:ObjectProperty rdf:about="https://aceofwands.github.io/laptops#produce">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <owl:inverseOf rdf:resource="https://aceofwands.github.io/laptops#produced_by"/>
     </owl:ObjectProperty>
     
@@ -303,11 +258,19 @@
     <owl:Class rdf:about="https://aceofwands.github.io/laptops#Battery">
         <rdfs:subClassOf rdf:resource="https://aceofwands.github.io/laptops#Component"/>
         <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_capacity"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#watthour"/>
-            </owl:Restriction>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_capacity"/>
+                        <owl:someValuesFrom rdf:resource="https://aceofwands.github.io/laptops#watthour"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_capacity"/>
+                        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                        <owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#watthour"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
     
@@ -430,16 +393,24 @@
     <owl:Class rdf:about="https://aceofwands.github.io/laptops#Display_panel">
         <rdfs:subClassOf rdf:resource="https://aceofwands.github.io/laptops#Component"/>
         <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_resolution"/>
-                <owl:allValuesFrom rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-            </owl:Restriction>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_diagonal_size"/>
+                        <owl:someValuesFrom rdf:resource="https://aceofwands.github.io/laptops#inches"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_diagonal_size"/>
+                        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                        <owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#inches"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_diagonal_size"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#inches"/>
+                <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_resolution"/>
+                <owl:allValuesFrom rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -497,6 +468,14 @@
     <!-- https://aceofwands.github.io/laptops#Graphics_card -->
 
     <owl:Class rdf:about="https://aceofwands.github.io/laptops#Graphics_card">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://aceofwands.github.io/laptops#Dedicated_graphics_card"/>
+                    <rdf:Description rdf:about="https://aceofwands.github.io/laptops#Integrated_graphics_card"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="https://aceofwands.github.io/laptops#Component"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -510,10 +489,6 @@
                 <owl:allValuesFrom rdf:resource="https://aceofwands.github.io/laptops#megahertz"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <owl:disjointUnionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="https://aceofwands.github.io/laptops#Dedicated_graphics_card"/>
-            <rdf:Description rdf:about="https://aceofwands.github.io/laptops#Integrated_graphics_card"/>
-        </owl:disjointUnionOf>
     </owl:Class>
     
 
@@ -523,11 +498,19 @@
     <owl:Class rdf:about="https://aceofwands.github.io/laptops#Hard_drive">
         <rdfs:subClassOf rdf:resource="https://aceofwands.github.io/laptops#Component"/>
         <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_capacity"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#megabytes"/>
-            </owl:Restriction>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_capacity"/>
+                        <owl:someValuesFrom rdf:resource="https://aceofwands.github.io/laptops#megabytes"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_capacity"/>
+                        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                        <owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#megabytes"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
     
@@ -566,11 +549,7 @@
                     <rdf:Description rdf:about="https://aceofwands.github.io/laptops#Graphics_card"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_dedicated"/>
-                        <owl:allValuesFrom>
-                            <owl:Class>
-                                <owl:complementOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-                            </owl:Class>
-                        </owl:allValuesFrom>
+                        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxCardinality>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -696,18 +675,34 @@
     <owl:Class rdf:about="https://aceofwands.github.io/laptops#Memory_module">
         <rdfs:subClassOf rdf:resource="https://aceofwands.github.io/laptops#Component"/>
         <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_capacity"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#gigabytes"/>
-            </owl:Restriction>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_capacity"/>
+                        <owl:someValuesFrom rdf:resource="https://aceofwands.github.io/laptops#gigabytes"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_capacity"/>
+                        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                        <owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#gigabytes"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_frequency"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#megahertz"/>
-            </owl:Restriction>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_frequency"/>
+                        <owl:someValuesFrom rdf:resource="https://aceofwands.github.io/laptops#megahertz"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_frequency"/>
+                        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                        <owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#megahertz"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
     
@@ -767,25 +762,24 @@
 
     <owl:Class rdf:about="https://aceofwands.github.io/laptops#Ports_group">
         <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_slots_type"/>
-                <owl:allValuesFrom rdf:resource="https://aceofwands.github.io/laptops#Port"/>
-            </owl:Restriction>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_number_of_slots"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_number_of_slots"/>
+                        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_number_of_slots"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange>
-                    <rdfs:Datatype>
-                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-                        <owl:withRestrictions rdf:parseType="Collection">
-                            <rdf:Description>
-                                <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</xsd:minExclusive>
-                            </rdf:Description>
-                        </owl:withRestrictions>
-                    </rdfs:Datatype>
-                </owl:onDataRange>
+                <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_slots_type"/>
+                <owl:allValuesFrom rdf:resource="https://aceofwands.github.io/laptops#Port"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -797,27 +791,34 @@
     <owl:Class rdf:about="https://aceofwands.github.io/laptops#Processor">
         <rdfs:subClassOf rdf:resource="https://aceofwands.github.io/laptops#Component"/>
         <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_frequency"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#gigahertz"/>
-            </owl:Restriction>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_frequency"/>
+                        <owl:someValuesFrom rdf:resource="https://aceofwands.github.io/laptops#gigahertz"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_frequency"/>
+                        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                        <owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#gigahertz"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_number_of_cores"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange>
-                    <rdfs:Datatype>
-                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-                        <owl:withRestrictions rdf:parseType="Collection">
-                            <rdf:Description>
-                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</xsd:minInclusive>
-                            </rdf:Description>
-                        </owl:withRestrictions>
-                    </rdfs:Datatype>
-                </owl:onDataRange>
-            </owl:Restriction>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_number_of_cores"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_number_of_cores"/>
+                        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
     
@@ -876,18 +877,34 @@
 
     <owl:Class rdf:about="https://aceofwands.github.io/laptops#Screen_resolution">
         <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_height"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#pixel"/>
-            </owl:Restriction>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_height"/>
+                        <owl:someValuesFrom rdf:resource="https://aceofwands.github.io/laptops#pixel"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_height"/>
+                        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                        <owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#pixel"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_width"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#pixel"/>
-            </owl:Restriction>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_width"/>
+                        <owl:someValuesFrom rdf:resource="https://aceofwands.github.io/laptops#pixel"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_width"/>
+                        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                        <owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#pixel"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
     
