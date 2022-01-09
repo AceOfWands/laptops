@@ -1777,6 +1777,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_256GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_HP"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Pro"/>
+        <rdfs:label>HP 11A32ET-ABZ</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1885,6 +1886,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_256GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_HP"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Home"/>
+        <rdfs:label>HP 14-dw1013nl</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1971,6 +1973,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#eMMC_64GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_HP"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Chrome_OS"/>
+        <rdfs:label>HP 14a-na0030nl</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2046,6 +2049,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_256GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_HP"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Home"/>
+        <rdfs:label>HP 15s-eq2007sl</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2132,6 +2136,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#Display_17.3inch_HD+_TN"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_HP"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Home"/>
+        <rdfs:label>HP 17-ca2029nf</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2230,6 +2235,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_512GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Lenovo"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Pro"/>
+        <rdfs:label>Lenovo 20TA0025IX</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2338,6 +2344,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_256GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Lenovo"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Pro"/>
+        <rdfs:label>Lenovo 20VE00HYIX</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2446,6 +2453,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_256GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_HP"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Pro"/>
+        <rdfs:label>HP 26R90UT-ABA</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2543,6 +2551,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_32GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_HP"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Chrome_OS"/>
+        <rdfs:label>HP 436C7UT-ABA</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2618,6 +2627,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_256GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_HP"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Pro"/>
+        <rdfs:label>HP 4L1Q8UT-ABA</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2715,6 +2725,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_512GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Huawei"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Home"/>
+        <rdfs:label>Huawei 53010TLW</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2779,6 +2790,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_256GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Huawei"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Home"/>
+        <rdfs:label>Huawei 53011TRF</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2876,6 +2888,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_512GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Huawei"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Home"/>
+        <rdfs:label>Huawei 53011TSL</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2973,6 +2986,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_256GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Huawei"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Home"/>
+        <rdfs:label>Huawei 53011WDU</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -3070,6 +3084,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_512GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Huawei"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Home"/>
+        <rdfs:label>Huawei 53012BBF</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -3167,6 +3182,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_512GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Huawei"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Home"/>
+        <rdfs:label>Huawei 53012BTD</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -3264,6 +3280,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_256GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Huawei"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Home"/>
+        <rdfs:label>Huawei 53012LFL</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -3361,6 +3378,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_512GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Huawei"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Home"/>
+        <rdfs:label>Huawei 53012LYR</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -3446,6 +3464,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#eMMC_64GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Lenovo"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Chrome_OS"/>
+        <rdfs:label>Lenovo 82BB002CIX</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -3521,6 +3540,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_256GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Lenovo"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_11_Home"/>
+        <rdfs:label>Lenovo 82H801BEIX</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -3618,6 +3638,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_256GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Lenovo"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Home"/>
+        <rdfs:label>Lenovo 82HS00MRIX</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -3704,6 +3725,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_512GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Lenovo"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_11_Home"/>
+        <rdfs:label>Lenovo 82K100DKIX</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -3790,6 +3812,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_256GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Lenovo"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Home"/>
+        <rdfs:label>Lenovo 82KD0003IX</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -3897,6 +3920,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_256GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Lenovo"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Pro"/>
+        <rdfs:label>Lenovo 82NA0024IX</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -3983,6 +4007,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_512GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Acer"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Home"/>
+        <rdfs:label>Acer A315-23-R15K</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -4079,6 +4104,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#Display_17.3inch_HD+_TN"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Acer"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Home"/>
+        <rdfs:label>Acer A317-53-50ZT</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -4175,6 +4201,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#eMMC_32GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Asus"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Chrome_OS"/>
+        <rdfs:label>Asus C223NA-GJ8654</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -4250,6 +4277,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#eMMC_32GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Asus"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Chrome_OS"/>
+        <rdfs:label>Asus C434TA-AIZ032</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -4325,6 +4353,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#eMMC_64GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Acer"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Chrome_OS"/>
+        <rdfs:label>Acer CP513-1H-S98J</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -4399,6 +4428,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_256GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Acer"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Pro"/>
+        <rdfs:label>Acer EX215-22-R9LY</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -4484,6 +4514,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_256GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Acer"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Pro"/>
+        <rdfs:label>Acer EX215-52-507R</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -4579,6 +4610,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_512GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Asus"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Home"/>
+        <rdfs:label>Asus G713QE-HX016T</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -4664,6 +4696,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_512GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Asus"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Home"/>
+        <rdfs:label>Asus S512JF-BQ120T</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -4762,6 +4795,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_256GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Acer"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Home"/>
+        <rdfs:label>Acer SF314-43-R0X0</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -4848,6 +4882,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_256GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Acer"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Home"/>
+        <rdfs:label>Acer SF314-59-34G2</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -4944,6 +4979,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_512GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Acer"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Pro"/>
+        <rdfs:label>Acer SP513-55N-78AT</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5030,6 +5066,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_1TB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Asus"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Home"/>
+        <rdfs:label>Asus UX393EA-HK001R</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5127,6 +5164,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_1TB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Asus"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Home"/>
+        <rdfs:label>Asus UX482EA-HY777TS</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5213,6 +5251,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_256GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Asus"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Home"/>
+        <rdfs:label>Asus X409JA-EK237T</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5309,6 +5348,7 @@
         <has rdf:resource="https://aceofwands.github.io/laptops#SSD_256GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Asus"/>
         <run rdf:resource="https://aceofwands.github.io/laptops#OS_Windows_10_Home"/>
+        <rdfs:label>Asus X413EA-EB1315T</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5394,6 +5434,7 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Manufacturer_AMD">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Manufacturer"/>
+        <rdfs:label>AMD</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5402,6 +5443,7 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Manufacturer_Acer">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Manufacturer"/>
+        <rdfs:label>Acer</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5410,6 +5452,7 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Manufacturer_Asus">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Manufacturer"/>
+        <rdfs:label>Asus</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5418,6 +5461,7 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Manufacturer_HP">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Manufacturer"/>
+        <rdfs:label>HP</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5426,6 +5470,7 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Manufacturer_Huawei">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Manufacturer"/>
+        <rdfs:label>Huawei</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5434,6 +5479,7 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Manufacturer_Intel">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Manufacturer"/>
+        <rdfs:label>Intel</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5442,6 +5488,7 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Manufacturer_Lenovo">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Manufacturer"/>
+        <rdfs:label>Lenovo</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5450,6 +5497,7 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Manufacturer_NVIDIA">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Manufacturer"/>
+        <rdfs:label>NVIDIA</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5458,6 +5506,7 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Manufacturer_Qualcomm">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Manufacturer"/>
+        <rdfs:label>Qualcomm</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5466,6 +5515,7 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Module_Bluetooth_4.0">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Bluetooth"/>
+        <rdfs:label xml:lang="en">Bluetooth 4.0 module</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5474,6 +5524,7 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Module_Bluetooth_4.1">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Bluetooth"/>
+        <rdfs:label xml:lang="en">Bluetooth 4.1 module</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5482,6 +5533,7 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Module_Bluetooth_4.2">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Bluetooth"/>
+        <rdfs:label xml:lang="en">Bluetooth 4.2 module</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5490,6 +5542,7 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Module_Bluetooth_5.0">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Bluetooth"/>
+        <rdfs:label xml:lang="en">Bluetooth 5.0 module</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5498,6 +5551,7 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Module_Bluetooth_5.1">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Bluetooth"/>
+        <rdfs:label xml:lang="en">Bluetooth 5.1 module</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5506,6 +5560,7 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Module_Bluetooth_5.2">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Bluetooth"/>
+        <rdfs:label xml:lang="en">Bluetooth 5.2 module</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5517,6 +5572,7 @@
         <has_port rdf:resource="https://aceofwands.github.io/laptops#Module_SD_SDHC_SDXC_card_reader_ports_group_1"/>
         <has_port rdf:resource="https://aceofwands.github.io/laptops#Module_SD_SDHC_SDXC_card_reader_ports_group_2"/>
         <has_port rdf:resource="https://aceofwands.github.io/laptops#Module_SD_SDHC_SDXC_card_reader_ports_group_3"/>
+        <rdfs:label xml:lang="en">SD/SDHC/SDXC card reader module</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5556,6 +5612,7 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Module_SD_card_reader">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Card_reader"/>
         <has_port rdf:resource="https://aceofwands.github.io/laptops#Module_SD_card_reader_ports_group"/>
+        <rdfs:label xml:lang="en">SD card reader module</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5574,6 +5631,7 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Module_WiFi_5">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#WiFi"/>
+        <rdfs:label xml:lang="en">WiFi 5 module</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5582,6 +5640,7 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Module_WiFi_6">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#WiFi"/>
+        <rdfs:label xml:lang="en">WiFi 6 module</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5591,6 +5650,7 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Module_microSD_card_reader">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Card_reader"/>
         <has_port rdf:resource="https://aceofwands.github.io/laptops#Module_microSD_card_reader_ports_group"/>
+        <rdfs:label xml:lang="en">MicroSD card reader module</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5609,6 +5669,7 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#OS_Chrome_OS">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Operating_system"/>
+        <rdfs:label>Chrome OS</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5617,6 +5678,7 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#OS_Windows_10_Home">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Operating_system"/>
+        <rdfs:label>Windows 10 Home</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5625,6 +5687,7 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#OS_Windows_10_Pro">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Operating_system"/>
+        <rdfs:label>Windows 10 Pro</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5633,6 +5696,7 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#OS_Windows_11_Home">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Operating_system"/>
+        <rdfs:label>Windows 11 Home</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5641,6 +5705,7 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#OS_Windows_11_Pro">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Operating_system"/>
+        <rdfs:label>Windows 11 Pro</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5650,6 +5715,7 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Port_Ethernet">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Input_port"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Output_port"/>
+        <rdfs:label>Ethernet</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5659,6 +5725,7 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Port_Firewire">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Input_port"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Output_port"/>
+        <rdfs:label>Firewire</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5667,6 +5734,7 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Port_HDMI">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Output_port"/>
+        <rdfs:label>HDMI</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5676,6 +5744,7 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Port_SDHC_card">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Input_port"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Output_port"/>
+        <rdfs:label xml:lang="en">SDHC card</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5685,6 +5754,7 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Port_SDXC_card">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Input_port"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Output_port"/>
+        <rdfs:label xml:lang="en">SDXC card</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5694,6 +5764,7 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Port_SD_card">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Input_port"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Output_port"/>
+        <rdfs:label xml:lang="en">SD card</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5703,6 +5774,7 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Port_Thunderbolt">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Input_port"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Output_port"/>
+        <rdfs:label>Thunderbolt</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5712,6 +5784,7 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Port_USB_typeA_2.0">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#USB_2.0"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#USB_type_A"/>
+        <rdfs:label xml:lang="en">USB type A 2.0</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5721,6 +5794,7 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Port_USB_typeA_3.0">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#USB_3.0"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#USB_type_A"/>
+        <rdfs:label xml:lang="en">USB type A 3.0</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5730,6 +5804,7 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Port_USB_typeA_3.1">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#USB_3.1"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#USB_type_A"/>
+        <rdfs:label xml:lang="en">USB type A 3.1</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5739,6 +5814,7 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Port_USB_typeA_3.2">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#USB_3.2"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#USB_type_A"/>
+        <rdfs:label xml:lang="en">USB type A 3.2</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5748,6 +5824,7 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Port_USB_typeC_3.0">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#USB_3.0"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#USB_type_C"/>
+        <rdfs:label xml:lang="en">USB type C 3.0</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5757,6 +5834,7 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Port_USB_typeC_3.2">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#USB_3.2"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#USB_type_C"/>
+        <rdfs:label xml:lang="en">USB type C 3.2</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5765,6 +5843,7 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Port_VGA">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Output_port"/>
+        <rdfs:label>VGA</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5773,6 +5852,7 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Port_input_audio_mini_jack">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Input_port"/>
+        <rdfs:label xml:lang="en">Audio input mini jack</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5782,6 +5862,7 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Port_microSD_card">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Input_port"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Output_port"/>
+        <rdfs:label xml:lang="en">MicroSD card</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5790,6 +5871,7 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Port_mini_display">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Output_port"/>
+        <rdfs:label>Mini Display</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -5798,6 +5880,7 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Port_output_audio_mini_jack">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Output_port"/>
+        <rdfs:label xml:lang="en">Audio output mini jack</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6075,6 +6158,7 @@
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
         <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1504</has_height>
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2256</has_width>
+        <rdfs:label>2K</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6085,6 +6169,7 @@
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
         <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2200</has_height>
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3300</has_width>
+        <rdfs:label>3K</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6095,6 +6180,7 @@
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
         <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2160</has_height>
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3840</has_width>
+        <rdfs:label>4K Ultra HD</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6105,6 +6191,7 @@
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
         <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1080</has_height>
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1920</has_width>
+        <rdfs:label>Full HD</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6115,6 +6202,7 @@
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
         <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">768</has_height>
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1360</has_width>
+        <rdfs:label>HD (1360x768)</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6125,6 +6213,7 @@
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
         <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">768</has_height>
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1366</has_width>
+        <rdfs:label>HD (1366x768)</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6135,6 +6224,7 @@
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
         <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1440</has_height>
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2560</has_width>
+        <rdfs:label>Quad HD</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6145,6 +6235,7 @@
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
         <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1152</has_height>
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2048</has_width>
+        <rdfs:label>QWXGA</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6155,6 +6246,7 @@
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
         <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">600</has_height>
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">800</has_width>
+        <rdfs:label>SVGA</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6165,6 +6257,7 @@
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
         <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1024</has_height>
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1280</has_width>
+        <rdfs:label>SXGA</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6175,6 +6268,7 @@
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
         <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1440</has_height>
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3440</has_width>
+        <rdfs:label>WQHD</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6185,6 +6279,7 @@
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
         <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1200</has_height>
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1920</has_width>
+        <rdfs:label>WUXGA</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6195,6 +6290,7 @@
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
         <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">800</has_height>
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1280</has_width>
+        <rdfs:label>WXGA</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6205,6 +6301,7 @@
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
         <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">768</has_height>
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1024</has_width>
+        <rdfs:label>XGA</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6215,6 +6312,7 @@
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
         <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">360</has_height>
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">640</has_width>
+        <rdfs:label>nHD</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6253,6 +6351,7 @@
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
         <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">900</has_height>
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1600</has_width>
+        <rdfs:label>HD+</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6263,6 +6362,7 @@
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
         <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1050</has_height>
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1680</has_width>
+        <rdfs:label>WSXGA+</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -6273,6 +6373,7 @@
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
         <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">900</has_height>
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1440</has_width>
+        <rdfs:label>WXGA+</rdfs:label>
     </owl:NamedIndividual>
     
 
