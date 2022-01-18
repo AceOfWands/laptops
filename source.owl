@@ -372,17 +372,7 @@
     <!-- https://aceofwands.github.io/laptops#Dedicated_graphics_card -->
 
     <owl:Class rdf:about="https://aceofwands.github.io/laptops#Dedicated_graphics_card">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://aceofwands.github.io/laptops#Graphics_card"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_dedicated"/>
-                        <owl:someValuesFrom rdf:resource="https://aceofwands.github.io/laptops#Memory_module"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://aceofwands.github.io/laptops#Graphics_card"/>
         <owl:disjointWith rdf:resource="https://aceofwands.github.io/laptops#Integrated_graphics_card"/>
     </owl:Class>
     
@@ -468,14 +458,6 @@
     <!-- https://aceofwands.github.io/laptops#Graphics_card -->
 
     <owl:Class rdf:about="https://aceofwands.github.io/laptops#Graphics_card">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://aceofwands.github.io/laptops#Dedicated_graphics_card"/>
-                    <rdf:Description rdf:about="https://aceofwands.github.io/laptops#Integrated_graphics_card"/>
-                </owl:unionOf>
-            </owl:Class>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="https://aceofwands.github.io/laptops#Component"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -543,17 +525,18 @@
     <!-- https://aceofwands.github.io/laptops#Integrated_graphics_card -->
 
     <owl:Class rdf:about="https://aceofwands.github.io/laptops#Integrated_graphics_card">
-        <owl:equivalentClass>
+        <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://aceofwands.github.io/laptops#Graphics_card"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_dedicated"/>
-                        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxCardinality>
+                        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
+                        <owl:onClass rdf:resource="https://aceofwands.github.io/laptops#Memory_module"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
-        </owl:equivalentClass>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -6386,6 +6369,16 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://aceofwands.github.io/laptops#Graphics_card"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_dedicated"/>
+                <owl:someValuesFrom rdf:resource="https://aceofwands.github.io/laptops#Memory_module"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="https://aceofwands.github.io/laptops#Dedicated_graphics_card"/>
+    </owl:Class>
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
