@@ -397,7 +397,7 @@
 						</owl:allValuesFrom>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_height"/>
+                        <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_diagonal_size"/>
                         <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
                         <owl:onClass rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
                     </owl:Restriction>
