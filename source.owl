@@ -194,6 +194,12 @@
     
 
 
+    <!-- https://aceofwands.github.io/laptops#has_diagonal_size -->
+
+    <owl:ObjectProperty rdf:about="https://aceofwands.github.io/laptops#has_diagonal_size"/>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -208,12 +214,6 @@
     <!-- https://aceofwands.github.io/laptops#has_capacity -->
 
     <owl:DatatypeProperty rdf:about="https://aceofwands.github.io/laptops#has_capacity"/>
-    
-
-
-    <!-- https://aceofwands.github.io/laptops#has_diagonal_size -->
-
-    <owl:DatatypeProperty rdf:about="https://aceofwands.github.io/laptops#has_diagonal_size"/>
     
 
 
@@ -376,16 +376,30 @@
     <owl:Class rdf:about="https://aceofwands.github.io/laptops#Display_panel">
         <rdfs:subClassOf rdf:resource="https://aceofwands.github.io/laptops#Component"/>
         <rdfs:subClassOf>
-            <owl:Class>
+			<owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_diagonal_size"/>
-                        <owl:someValuesFrom rdf:resource="https://aceofwands.github.io/laptops#inches"/>
+                        <owl:allValuesFrom>
+							<owl:Class>
+								<owl:intersectionOf rdf:parseType="Collection">
+									<rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+									<owl:Restriction>
+										<owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit"/>
+										<owl:ObjectHasValue rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/inch-International"/>
+									</owl:Restriction>
+									<owl:Restriction>
+										<owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue"/>
+										<owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#inches"/>
+									</owl:Restriction>
+								</owl:intersectionOf>
+							</owl:Class>
+						</owl:allValuesFrom>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_diagonal_size"/>
+                        <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_height"/>
                         <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                        <owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#inches"/>
+                        <owl:onClass rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -1434,7 +1448,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Display_11.6inch_HD_IPS">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#IPS_display"/>
         <has_resolution rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution_HD_1366x768"/>
-        <has_diagonal_size rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11,6</has_diagonal_size>
+        <has_diagonal_size>
+			<rdf:Description rdf:nodeID="Display_11.6inch_HD_IPS_size">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/inch-International"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11,6</om:hasNumericalValue>
+			</rdf:Description>
+		</has_diagonal_size>
     </owl:NamedIndividual>
     
 
@@ -1444,7 +1464,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Display_11.6inch_HD_TN">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#TN_display"/>
         <has_resolution rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution_HD_1366x768"/>
-        <has_diagonal_size rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11,6</has_diagonal_size>
+        <has_diagonal_size>
+			<rdf:Description rdf:nodeID="Display_11.6inch_HD_TN_size">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/inch-International"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11,6</om:hasNumericalValue>
+			</rdf:Description>
+		</has_diagonal_size>
     </owl:NamedIndividual>
     
 
@@ -1454,7 +1480,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Display_13.3inch_FHD_IPS">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#IPS_display"/>
         <has_resolution rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution_FHD"/>
-        <has_diagonal_size rdf:datatype="http://www.w3.org/2001/XMLSchema#float">13,3</has_diagonal_size>
+        <has_diagonal_size>
+			<rdf:Description rdf:nodeID="Display_13.3inch_FHD_IPS_size">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/inch-International"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">13,3</om:hasNumericalValue>
+			</rdf:Description>
+		</has_diagonal_size>
     </owl:NamedIndividual>
     
 
@@ -1464,7 +1496,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Display_13.5inch_2K_IPS">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#IPS_display"/>
         <has_resolution rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution_2K"/>
-        <has_diagonal_size rdf:datatype="http://www.w3.org/2001/XMLSchema#float">13,5</has_diagonal_size>
+        <has_diagonal_size>
+			<rdf:Description rdf:nodeID="Display_13.5inch_2K_IPS_size">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/inch-International"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">13,5</om:hasNumericalValue>
+			</rdf:Description>
+		</has_diagonal_size>
     </owl:NamedIndividual>
     
 
@@ -1474,7 +1512,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Display_13.9inch_3K_IPS">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#IPS_display"/>
         <has_resolution rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution_3K"/>
-        <has_diagonal_size rdf:datatype="http://www.w3.org/2001/XMLSchema#float">13,9</has_diagonal_size>
+        <has_diagonal_size>
+			<rdf:Description rdf:nodeID="Display_13.9inch_3K_IPS_size">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/inch-International"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">13,9</om:hasNumericalValue>
+			</rdf:Description>
+		</has_diagonal_size>
     </owl:NamedIndividual>
     
 
@@ -1484,7 +1528,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Display_13inch_2K_IPS">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#IPS_display"/>
         <has_resolution rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution_2K"/>
-        <has_diagonal_size rdf:datatype="http://www.w3.org/2001/XMLSchema#float">13</has_diagonal_size>
+        <has_diagonal_size>
+			<rdf:Description rdf:nodeID="Display_13inch_2K_IPS_size">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/inch-International"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">13</om:hasNumericalValue>
+			</rdf:Description>
+		</has_diagonal_size>
     </owl:NamedIndividual>
     
 
@@ -1494,7 +1544,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Display_14.2inch_2K_LTPS">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#LTPS_display"/>
         <has_resolution rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution_2K"/>
-        <has_diagonal_size rdf:datatype="http://www.w3.org/2001/XMLSchema#float">14,2</has_diagonal_size>
+        <has_diagonal_size>
+			<rdf:Description rdf:nodeID="Display_14.2inch_2K_LTPS_size">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/inch-International"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">14,2</om:hasNumericalValue>
+			</rdf:Description>
+		</has_diagonal_size>
     </owl:NamedIndividual>
     
 
@@ -1504,7 +1560,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Display_14inch_FHD_IPS">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#IPS_display"/>
         <has_resolution rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution_FHD"/>
-        <has_diagonal_size rdf:datatype="http://www.w3.org/2001/XMLSchema#float">14</has_diagonal_size>
+        <has_diagonal_size>
+			<rdf:Description rdf:nodeID="Display_14inch_FHD_IPS_size">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/inch-International"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">14</om:hasNumericalValue>
+			</rdf:Description>
+		</has_diagonal_size>
     </owl:NamedIndividual>
     
 
@@ -1514,7 +1576,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Display_14inch_FHD_TN">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#TN_display"/>
         <has_resolution rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution_FHD"/>
-        <has_diagonal_size rdf:datatype="http://www.w3.org/2001/XMLSchema#float">14</has_diagonal_size>
+        <has_diagonal_size>
+			<rdf:Description rdf:nodeID="Display_14inch_FHD_TN_size">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/inch-International"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">14</om:hasNumericalValue>
+			</rdf:Description>
+		</has_diagonal_size>
     </owl:NamedIndividual>
     
 
@@ -1524,7 +1592,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Display_15.6inch_FHD_IPS">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#IPS_display"/>
         <has_resolution rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution_FHD"/>
-        <has_diagonal_size rdf:datatype="http://www.w3.org/2001/XMLSchema#float">15,6</has_diagonal_size>
+        <has_diagonal_size>
+			<rdf:Description rdf:nodeID="Display_15.6inch_FHD_IPS_size">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/inch-International"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">15,6</om:hasNumericalValue>
+			</rdf:Description>
+		</has_diagonal_size>
     </owl:NamedIndividual>
     
 
@@ -1534,7 +1608,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Display_15.6inch_FHD_TN">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#TN_display"/>
         <has_resolution rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution_FHD"/>
-        <has_diagonal_size rdf:datatype="http://www.w3.org/2001/XMLSchema#float">15,6</has_diagonal_size>
+        <has_diagonal_size>
+			<rdf:Description rdf:nodeID="Display_15.6inch_FHD_TN_size">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/inch-International"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">15,6</om:hasNumericalValue>
+			</rdf:Description>
+		</has_diagonal_size>
     </owl:NamedIndividual>
     
 
@@ -1544,7 +1624,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Display_15.6inch_HD_TN">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#TN_display"/>
         <has_resolution rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution_HD_1366x768"/>
-        <has_diagonal_size rdf:datatype="http://www.w3.org/2001/XMLSchema#float">15,6</has_diagonal_size>
+        <has_diagonal_size>
+			<rdf:Description rdf:nodeID="Display_15.6inch_HD_TN_size">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/inch-International"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">15,6</om:hasNumericalValue>
+			</rdf:Description>
+		</has_diagonal_size>
     </owl:NamedIndividual>
     
 
@@ -1554,7 +1640,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Display_17.3inch_FHD_IPS">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#IPS_display"/>
         <has_resolution rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution_FHD"/>
-        <has_diagonal_size rdf:datatype="http://www.w3.org/2001/XMLSchema#float">17,3</has_diagonal_size>
+        <has_diagonal_size>
+			<rdf:Description rdf:nodeID="Display_17.3inch_FHD_IPS_size">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/inch-International"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">17,3</om:hasNumericalValue>
+			</rdf:Description>
+		</has_diagonal_size>
     </owl:NamedIndividual>
     
 
@@ -6524,7 +6616,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Display_17.3inch_HD+_TN">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#TN_display"/>
         <has_resolution rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution_HD+"/>
-        <has_diagonal_size rdf:datatype="http://www.w3.org/2001/XMLSchema#float">17,3</has_diagonal_size>
+        <has_diagonal_size>
+			<rdf:Description rdf:nodeID="Display_17.3inch_HD_plus_TN_size">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/inch-International"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">17,3</om:hasNumericalValue>
+			</rdf:Description>
+		</has_diagonal_size>
     </owl:NamedIndividual>
     
 
