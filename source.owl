@@ -6,6 +6,7 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:om="http://www.ontology-of-units-of-measure.org/resource/om-2/"
      xmlns:laptops="https://aceofwands.github.io/laptops#">
     <owl:Ontology rdf:about="https://aceofwands.github.io/laptops" rdfs:label="Laptop models ontology" />
     
@@ -181,6 +182,12 @@
     
 
 
+    <!-- https://aceofwands.github.io/laptops#has_height -->
+
+    <owl:ObjectProperty rdf:about="https://aceofwands.github.io/laptops#has_height"/>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -207,12 +214,6 @@
     <!-- https://aceofwands.github.io/laptops#has_frequency -->
 
     <owl:DatatypeProperty rdf:about="https://aceofwands.github.io/laptops#has_frequency"/>
-    
-
-
-    <!-- https://aceofwands.github.io/laptops#has_height -->
-
-    <owl:DatatypeProperty rdf:about="https://aceofwands.github.io/laptops#has_height"/>
     
 
 
@@ -856,12 +857,26 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_height"/>
-                        <owl:someValuesFrom rdf:resource="https://aceofwands.github.io/laptops#pixel"/>
+                        <owl:allValuesFrom>
+							<owl:Class>
+								<owl:intersectionOf rdf:parseType="Collection">
+									<rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+									<owl:Restriction>
+										<owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit"/>
+										<owl:ObjectHasValue rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+									</owl:Restriction>
+									<owl:Restriction>
+										<owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue"/>
+										<owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#pixel"/>
+									</owl:Restriction>
+								</owl:intersectionOf>
+							</owl:Class>
+						</owl:allValuesFrom>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_height"/>
                         <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                        <owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#pixel"/>
+                        <owl:onClass rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -6131,7 +6146,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_2K">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1504</has_height>
+        <has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1504</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2256</has_width>
         <rdfs:label>2K</rdfs:label>
     </owl:NamedIndividual>
@@ -6142,7 +6163,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_3K">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2200</has_height>
+        <has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2200</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3300</has_width>
         <rdfs:label>3K</rdfs:label>
     </owl:NamedIndividual>
@@ -6153,7 +6180,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_4K_UHD">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2160</has_height>
+        <has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2160</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3840</has_width>
         <rdfs:label>4K Ultra HD</rdfs:label>
     </owl:NamedIndividual>
@@ -6164,7 +6197,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_FHD">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1080</has_height>
+        <has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1080</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1920</has_width>
         <rdfs:label>Full HD</rdfs:label>
     </owl:NamedIndividual>
@@ -6175,7 +6214,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_HD_1360x768">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">768</has_height>
+        <has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">768</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1360</has_width>
         <rdfs:label>HD (1360x768)</rdfs:label>
     </owl:NamedIndividual>
@@ -6186,7 +6231,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_HD_1366x768">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">768</has_height>
+        <has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">768</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1366</has_width>
         <rdfs:label>HD (1366x768)</rdfs:label>
     </owl:NamedIndividual>
@@ -6197,7 +6248,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_QHD">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1440</has_height>
+		<has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1440</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>																					 
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2560</has_width>
         <rdfs:label>Quad HD</rdfs:label>
     </owl:NamedIndividual>
@@ -6208,7 +6265,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_QWXGA">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1152</has_height>
+		<has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1152</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>																					 
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2048</has_width>
         <rdfs:label>QWXGA</rdfs:label>
     </owl:NamedIndividual>
@@ -6219,7 +6282,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_SVGA">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">600</has_height>
+		<has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">600</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>																					
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">800</has_width>
         <rdfs:label>SVGA</rdfs:label>
     </owl:NamedIndividual>
@@ -6230,7 +6299,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_SXGA">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1024</has_height>
+		<has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1024</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>																					 
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1280</has_width>
         <rdfs:label>SXGA</rdfs:label>
     </owl:NamedIndividual>
@@ -6241,7 +6316,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_WQHD">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1440</has_height>
+		<has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1440</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>																					 
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3440</has_width>
         <rdfs:label>WQHD</rdfs:label>
     </owl:NamedIndividual>
@@ -6252,7 +6333,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_WUXGA">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1200</has_height>
+		<has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1200</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>																					 
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1920</has_width>
         <rdfs:label>WUXGA</rdfs:label>
     </owl:NamedIndividual>
@@ -6263,7 +6350,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_WXGA">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">800</has_height>
+		<has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">800</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>																					
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1280</has_width>
         <rdfs:label>WXGA</rdfs:label>
     </owl:NamedIndividual>
@@ -6274,7 +6367,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_XGA">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">768</has_height>
+		<has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">768</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>																					
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1024</has_width>
         <rdfs:label>XGA</rdfs:label>
     </owl:NamedIndividual>
@@ -6285,7 +6384,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_nHD">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">360</has_height>
+        <has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">360</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">640</has_width>
         <rdfs:label>nHD</rdfs:label>
     </owl:NamedIndividual>
@@ -6324,7 +6429,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_HD+">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">900</has_height>
+        <has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">900</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1600</has_width>
         <rdfs:label>HD+</rdfs:label>
     </owl:NamedIndividual>
@@ -6335,7 +6446,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_WSXGA+">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1050</has_height>
+        <has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1050</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1680</has_width>
         <rdfs:label>WSXGA+</rdfs:label>
     </owl:NamedIndividual>
@@ -6346,7 +6463,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_WXGA+">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">900</has_height>
+        <has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">900</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>
         <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1440</has_width>
         <rdfs:label>WXGA+</rdfs:label>
     </owl:NamedIndividual>
