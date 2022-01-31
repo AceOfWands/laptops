@@ -188,6 +188,12 @@
     
 
 
+    <!-- https://aceofwands.github.io/laptops#has_width -->
+
+    <owl:ObjectProperty rdf:about="https://aceofwands.github.io/laptops#has_width"/>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -226,12 +232,6 @@
     <!-- https://aceofwands.github.io/laptops#has_number_of_slots -->
 
     <owl:DatatypeProperty rdf:about="https://aceofwands.github.io/laptops#has_number_of_slots"/>
-    
-
-
-    <!-- https://aceofwands.github.io/laptops#has_width -->
-
-    <owl:DatatypeProperty rdf:about="https://aceofwands.github.io/laptops#has_width"/>
     
 
 
@@ -886,12 +886,26 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_width"/>
-                        <owl:someValuesFrom rdf:resource="https://aceofwands.github.io/laptops#pixel"/>
+                        <owl:allValuesFrom>
+							<owl:Class>
+								<owl:intersectionOf rdf:parseType="Collection">
+									<rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+									<owl:Restriction>
+										<owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit"/>
+										<owl:ObjectHasValue rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+									</owl:Restriction>
+									<owl:Restriction>
+										<owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue"/>
+										<owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#pixel"/>
+									</owl:Restriction>
+								</owl:intersectionOf>
+							</owl:Class>
+						</owl:allValuesFrom>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_width"/>
                         <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                        <owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#pixel"/>
+                        <owl:onClass rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -6153,7 +6167,13 @@
 				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1504</om:hasNumericalValue>
 			</rdf:Description>
 		</has_height>
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2256</has_width>
+        <has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2256</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>2K</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6170,7 +6190,13 @@
 				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2200</om:hasNumericalValue>
 			</rdf:Description>
 		</has_height>
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3300</has_width>
+        <has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3300</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>3K</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6187,7 +6213,13 @@
 				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2160</om:hasNumericalValue>
 			</rdf:Description>
 		</has_height>
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3840</has_width>
+        <has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3840</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>4K Ultra HD</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6204,7 +6236,13 @@
 				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1080</om:hasNumericalValue>
 			</rdf:Description>
 		</has_height>
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1920</has_width>
+        <has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1920</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>Full HD</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6221,7 +6259,13 @@
 				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">768</om:hasNumericalValue>
 			</rdf:Description>
 		</has_height>
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1360</has_width>
+        <has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1360</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>HD (1360x768)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6238,7 +6282,13 @@
 				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">768</om:hasNumericalValue>
 			</rdf:Description>
 		</has_height>
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1366</has_width>
+        <has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1366</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>HD (1366x768)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6254,8 +6304,14 @@
 				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
 				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1440</om:hasNumericalValue>
 			</rdf:Description>
-		</has_height>																					 
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2560</has_width>
+		</has_height>
+		<has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2560</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>Quad HD</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6271,8 +6327,14 @@
 				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
 				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1152</om:hasNumericalValue>
 			</rdf:Description>
-		</has_height>																					 
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2048</has_width>
+		</has_height>
+		<has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2048</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>QWXGA</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6288,8 +6350,14 @@
 				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
 				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">600</om:hasNumericalValue>
 			</rdf:Description>
-		</has_height>																					
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">800</has_width>
+		</has_height>
+		<has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">800</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>SVGA</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6305,8 +6373,14 @@
 				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
 				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1024</om:hasNumericalValue>
 			</rdf:Description>
-		</has_height>																					 
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1280</has_width>
+		</has_height>
+		<has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1280</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>SXGA</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6322,8 +6396,14 @@
 				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
 				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1440</om:hasNumericalValue>
 			</rdf:Description>
-		</has_height>																					 
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3440</has_width>
+		</has_height>
+		<has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3440</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>WQHD</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6339,8 +6419,14 @@
 				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
 				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1200</om:hasNumericalValue>
 			</rdf:Description>
-		</has_height>																					 
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1920</has_width>
+		</has_height>
+		<has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1920</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>WUXGA</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6356,8 +6442,14 @@
 				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
 				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">800</om:hasNumericalValue>
 			</rdf:Description>
-		</has_height>																					
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1280</has_width>
+		</has_height>
+		<has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1280</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>WXGA</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6373,8 +6465,14 @@
 				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
 				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">768</om:hasNumericalValue>
 			</rdf:Description>
-		</has_height>																					
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1024</has_width>
+		</has_height>
+		<has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1024</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>XGA</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6391,7 +6489,13 @@
 				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">360</om:hasNumericalValue>
 			</rdf:Description>
 		</has_height>
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">640</has_width>
+        <has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">640</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>nHD</rdfs:label>
     </owl:NamedIndividual>
     
