@@ -6,6 +6,7 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:om="http://www.ontology-of-units-of-measure.org/resource/om-2/"
      xmlns:laptops="https://aceofwands.github.io/laptops#">
     <owl:Ontology rdf:about="https://aceofwands.github.io/laptops" rdfs:label="Laptop models ontology" />
     
@@ -181,6 +182,36 @@
     
 
 
+    <!-- https://aceofwands.github.io/laptops#has_height -->
+
+    <owl:ObjectProperty rdf:about="https://aceofwands.github.io/laptops#has_height"/>
+    
+
+
+    <!-- https://aceofwands.github.io/laptops#has_width -->
+
+    <owl:ObjectProperty rdf:about="https://aceofwands.github.io/laptops#has_width"/>
+    
+
+
+    <!-- https://aceofwands.github.io/laptops#has_diagonal_size -->
+
+    <owl:ObjectProperty rdf:about="https://aceofwands.github.io/laptops#has_diagonal_size"/>
+    
+
+
+    <!-- https://aceofwands.github.io/laptops#has_frequency -->
+
+    <owl:ObjectProperty rdf:about="https://aceofwands.github.io/laptops#has_frequency"/>
+    
+
+
+    <!-- https://aceofwands.github.io/laptops#has_capacity -->
+
+    <owl:ObjectProperty rdf:about="https://aceofwands.github.io/laptops#has_capacity"/>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -189,30 +220,6 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
-
-    <!-- https://aceofwands.github.io/laptops#has_capacity -->
-
-    <owl:DatatypeProperty rdf:about="https://aceofwands.github.io/laptops#has_capacity"/>
-    
-
-
-    <!-- https://aceofwands.github.io/laptops#has_diagonal_size -->
-
-    <owl:DatatypeProperty rdf:about="https://aceofwands.github.io/laptops#has_diagonal_size"/>
-    
-
-
-    <!-- https://aceofwands.github.io/laptops#has_frequency -->
-
-    <owl:DatatypeProperty rdf:about="https://aceofwands.github.io/laptops#has_frequency"/>
-    
-
-
-    <!-- https://aceofwands.github.io/laptops#has_height -->
-
-    <owl:DatatypeProperty rdf:about="https://aceofwands.github.io/laptops#has_height"/>
     
 
 
@@ -225,12 +232,6 @@
     <!-- https://aceofwands.github.io/laptops#has_number_of_slots -->
 
     <owl:DatatypeProperty rdf:about="https://aceofwands.github.io/laptops#has_number_of_slots"/>
-    
-
-
-    <!-- https://aceofwands.github.io/laptops#has_width -->
-
-    <owl:DatatypeProperty rdf:about="https://aceofwands.github.io/laptops#has_width"/>
     
 
 
@@ -250,16 +251,30 @@
     <owl:Class rdf:about="https://aceofwands.github.io/laptops#Battery">
         <rdfs:subClassOf rdf:resource="https://aceofwands.github.io/laptops#Component"/>
         <rdfs:subClassOf>
-            <owl:Class>
+			<owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_capacity"/>
-                        <owl:someValuesFrom rdf:resource="https://aceofwands.github.io/laptops#watthour"/>
+                        <owl:allValuesFrom>
+							<owl:Class>
+								<owl:intersectionOf rdf:parseType="Collection">
+									<rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+									<owl:Restriction>
+										<owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit"/>
+										<owl:ObjectHasValue rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/wattHour"/>
+									</owl:Restriction>
+									<owl:Restriction>
+										<owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue"/>
+										<owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#watthour"/>
+									</owl:Restriction>
+								</owl:intersectionOf>
+							</owl:Class>
+						</owl:allValuesFrom>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_capacity"/>
                         <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                        <owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#watthour"/>
+                        <owl:onClass rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -375,16 +390,30 @@
     <owl:Class rdf:about="https://aceofwands.github.io/laptops#Display_panel">
         <rdfs:subClassOf rdf:resource="https://aceofwands.github.io/laptops#Component"/>
         <rdfs:subClassOf>
-            <owl:Class>
+			<owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_diagonal_size"/>
-                        <owl:someValuesFrom rdf:resource="https://aceofwands.github.io/laptops#inches"/>
+                        <owl:allValuesFrom>
+							<owl:Class>
+								<owl:intersectionOf rdf:parseType="Collection">
+									<rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+									<owl:Restriction>
+										<owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit"/>
+										<owl:ObjectHasValue rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/inch-International"/>
+									</owl:Restriction>
+									<owl:Restriction>
+										<owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue"/>
+										<owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#inches"/>
+									</owl:Restriction>
+								</owl:intersectionOf>
+							</owl:Class>
+						</owl:allValuesFrom>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_diagonal_size"/>
                         <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                        <owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#inches"/>
+                        <owl:onClass rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -458,10 +487,33 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_frequency"/>
-                <owl:allValuesFrom rdf:resource="https://aceofwands.github.io/laptops#megahertz"/>
-            </owl:Restriction>
+			<owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_frequency"/>
+                        <owl:allValuesFrom>
+							<owl:Class>
+								<owl:intersectionOf rdf:parseType="Collection">
+									<rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+									<owl:Restriction>
+										<owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit"/>
+										<owl:ObjectHasValue rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/megahertz"/>
+									</owl:Restriction>
+									<owl:Restriction>
+										<owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue"/>
+										<owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#megahertz"/>
+									</owl:Restriction>
+								</owl:intersectionOf>
+							</owl:Class>
+						</owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_frequency"/>
+                        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
     
@@ -472,16 +524,30 @@
     <owl:Class rdf:about="https://aceofwands.github.io/laptops#Hard_drive">
         <rdfs:subClassOf rdf:resource="https://aceofwands.github.io/laptops#Component"/>
         <rdfs:subClassOf>
-            <owl:Class>
+			<owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_capacity"/>
-                        <owl:someValuesFrom rdf:resource="https://aceofwands.github.io/laptops#gigabytes"/>
+                        <owl:allValuesFrom>
+							<owl:Class>
+								<owl:intersectionOf rdf:parseType="Collection">
+									<rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+									<owl:Restriction>
+										<owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit"/>
+										<owl:ObjectHasValue rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigabyte"/>
+									</owl:Restriction>
+									<owl:Restriction>
+										<owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue"/>
+										<owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#gigabytes"/>
+									</owl:Restriction>
+								</owl:intersectionOf>
+							</owl:Class>
+						</owl:allValuesFrom>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_capacity"/>
                         <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                        <owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#gigabytes"/>
+                        <owl:onClass rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -650,31 +716,59 @@
     <owl:Class rdf:about="https://aceofwands.github.io/laptops#Memory_module">
         <rdfs:subClassOf rdf:resource="https://aceofwands.github.io/laptops#Component"/>
         <rdfs:subClassOf>
-            <owl:Class>
+			<owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_capacity"/>
-                        <owl:someValuesFrom rdf:resource="https://aceofwands.github.io/laptops#gigabytes"/>
+                        <owl:allValuesFrom>
+							<owl:Class>
+								<owl:intersectionOf rdf:parseType="Collection">
+									<rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+									<owl:Restriction>
+										<owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit"/>
+										<owl:ObjectHasValue rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigabyte"/>
+									</owl:Restriction>
+									<owl:Restriction>
+										<owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue"/>
+										<owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#gigabytes"/>
+									</owl:Restriction>
+								</owl:intersectionOf>
+							</owl:Class>
+						</owl:allValuesFrom>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_capacity"/>
                         <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                        <owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#gigabytes"/>
+                        <owl:onClass rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
-            <owl:Class>
+			<owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_frequency"/>
-                        <owl:someValuesFrom rdf:resource="https://aceofwands.github.io/laptops#megahertz"/>
+                        <owl:allValuesFrom>
+							<owl:Class>
+								<owl:intersectionOf rdf:parseType="Collection">
+									<rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+									<owl:Restriction>
+										<owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit"/>
+										<owl:ObjectHasValue rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/megahertz"/>
+									</owl:Restriction>
+									<owl:Restriction>
+										<owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue"/>
+										<owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#megahertz"/>
+									</owl:Restriction>
+								</owl:intersectionOf>
+							</owl:Class>
+						</owl:allValuesFrom>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_frequency"/>
                         <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                        <owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#megahertz"/>
+                        <owl:onClass rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -766,16 +860,30 @@
     <owl:Class rdf:about="https://aceofwands.github.io/laptops#Processor">
         <rdfs:subClassOf rdf:resource="https://aceofwands.github.io/laptops#Component"/>
         <rdfs:subClassOf>
-            <owl:Class>
+			<owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_frequency"/>
-                        <owl:someValuesFrom rdf:resource="https://aceofwands.github.io/laptops#gigahertz"/>
+                        <owl:allValuesFrom>
+							<owl:Class>
+								<owl:intersectionOf rdf:parseType="Collection">
+									<rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+									<owl:Restriction>
+										<owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit"/>
+										<owl:ObjectHasValue rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigahertz"/>
+									</owl:Restriction>
+									<owl:Restriction>
+										<owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue"/>
+										<owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#gigahertz"/>
+									</owl:Restriction>
+								</owl:intersectionOf>
+							</owl:Class>
+						</owl:allValuesFrom>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_frequency"/>
                         <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                        <owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#gigahertz"/>
+                        <owl:onClass rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -856,12 +964,26 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_height"/>
-                        <owl:someValuesFrom rdf:resource="https://aceofwands.github.io/laptops#pixel"/>
+                        <owl:allValuesFrom>
+							<owl:Class>
+								<owl:intersectionOf rdf:parseType="Collection">
+									<rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+									<owl:Restriction>
+										<owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit"/>
+										<owl:ObjectHasValue rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+									</owl:Restriction>
+									<owl:Restriction>
+										<owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue"/>
+										<owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#pixel"/>
+									</owl:Restriction>
+								</owl:intersectionOf>
+							</owl:Class>
+						</owl:allValuesFrom>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_height"/>
                         <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                        <owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#pixel"/>
+                        <owl:onClass rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -871,12 +993,26 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_width"/>
-                        <owl:someValuesFrom rdf:resource="https://aceofwands.github.io/laptops#pixel"/>
+                        <owl:allValuesFrom>
+							<owl:Class>
+								<owl:intersectionOf rdf:parseType="Collection">
+									<rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+									<owl:Restriction>
+										<owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit"/>
+										<owl:ObjectHasValue rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+									</owl:Restriction>
+									<owl:Restriction>
+										<owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue"/>
+										<owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#pixel"/>
+									</owl:Restriction>
+								</owl:intersectionOf>
+							</owl:Class>
+						</owl:allValuesFrom>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="https://aceofwands.github.io/laptops#has_width"/>
                         <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                        <owl:onDataRange rdf:resource="https://aceofwands.github.io/laptops#pixel"/>
+                        <owl:onClass rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -996,7 +1132,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Battery_32Wh">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Battery"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#float">32</has_capacity>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="Battery_32Wh_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/wattHour"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">32</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
     </owl:NamedIndividual>
     
 
@@ -1005,7 +1147,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Battery_35Wh">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Battery"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#float">35</has_capacity>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="Battery_35Wh_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/wattHour"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">35</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
     </owl:NamedIndividual>
     
 
@@ -1014,7 +1162,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Battery_36Wh">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Battery"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#float">36</has_capacity>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="Battery_36Wh_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/wattHour"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">36</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
     </owl:NamedIndividual>
     
 
@@ -1023,7 +1177,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Battery_37Wh">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Battery"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#float">37</has_capacity>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="Battery_37Wh_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/wattHour"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">37</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
     </owl:NamedIndividual>
     
 
@@ -1032,7 +1192,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Battery_38Wh">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Battery"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#float">38</has_capacity>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="Battery_38Wh_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/wattHour"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">38</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
     </owl:NamedIndividual>
     
 
@@ -1041,7 +1207,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Battery_41Wh">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Battery"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#float">41</has_capacity>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="Battery_41Wh_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/wattHour"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">41</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
     </owl:NamedIndividual>
     
 
@@ -1050,7 +1222,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Battery_42Wh">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Battery"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#float">42</has_capacity>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="Battery_42Wh_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/wattHour"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">42</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
     </owl:NamedIndividual>
     
 
@@ -1059,7 +1237,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Battery_43Wh">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Battery"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43</has_capacity>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="Battery_43Wh_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/wattHour"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">43</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
     </owl:NamedIndividual>
     
 
@@ -1068,7 +1252,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Battery_45Wh">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Battery"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#float">45</has_capacity>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="Battery_45Wh_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/wattHour"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">45</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
     </owl:NamedIndividual>
     
 
@@ -1077,7 +1267,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Battery_47Wh">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Battery"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#float">47</has_capacity>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="Battery_47Wh_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/wattHour"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">47</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
     </owl:NamedIndividual>
     
 
@@ -1086,7 +1282,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Battery_48Wh">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Battery"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#float">48</has_capacity>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="Battery_48Wh_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/wattHour"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">48</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
     </owl:NamedIndividual>
     
 
@@ -1095,7 +1297,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Battery_56Wh">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Battery"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#float">56</has_capacity>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="Battery_56Wh_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/wattHour"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">56</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
     </owl:NamedIndividual>
     
 
@@ -1104,7 +1312,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Battery_60Wh">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Battery"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#float">60</has_capacity>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="Battery_60Wh_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/wattHour"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">60</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
     </owl:NamedIndividual>
     
 
@@ -1113,7 +1327,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Battery_65Wh">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Battery"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#float">65</has_capacity>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="Battery_65Wh_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/wattHour"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">65</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
     </owl:NamedIndividual>
     
 
@@ -1122,7 +1342,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Battery_67Wh">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Battery"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#float">67</has_capacity>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="Battery_67Wh_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/wattHour"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">67</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
     </owl:NamedIndividual>
     
 
@@ -1131,7 +1357,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Battery_90Wh">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Battery"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#float">90</has_capacity>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="Battery_90Wh_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/wattHour"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">90</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
     </owl:NamedIndividual>
     
 
@@ -1140,7 +1372,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Battery_94Wh">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Battery"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#float">94</has_capacity>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="Battery_94Wh_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/wattHour"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">94</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
     </owl:NamedIndividual>
     
 
@@ -1150,7 +1388,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#CPU_AMD_A4_9120C">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Processor"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_AMD"/>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1,60</has_frequency>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="CPU_AMD_A4_9120C_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.60</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
         <has_number_of_cores rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</has_number_of_cores>
     </owl:NamedIndividual>
     
@@ -1161,7 +1405,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#CPU_AMD_Athlon_Silver_3050U">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Processor"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_AMD"/>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2,30</has_frequency>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="CPU_AMD_Athlon_Silver_3050U_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.30</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
         <has_number_of_cores rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</has_number_of_cores>
     </owl:NamedIndividual>
     
@@ -1172,7 +1422,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#CPU_AMD_Ryzen_3_3250U">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Processor"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_AMD"/>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2,60</has_frequency>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="CPU_AMD_Ryzen_3_3250U_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.60</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
         <has_number_of_cores rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</has_number_of_cores>
     </owl:NamedIndividual>
     
@@ -1183,7 +1439,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#CPU_AMD_Ryzen_3_5300U">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Processor"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_AMD"/>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2,60</has_frequency>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="CPU_AMD_Ryzen_3_5300U_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.60</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
         <has_number_of_cores rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</has_number_of_cores>
     </owl:NamedIndividual>
     
@@ -1194,7 +1456,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#CPU_AMD_Ryzen_5_3500U">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Processor"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_AMD"/>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2,10</has_frequency>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="CPU_AMD_Ryzen_5_3500U_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.10</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
         <has_number_of_cores rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</has_number_of_cores>
     </owl:NamedIndividual>
     
@@ -1205,7 +1473,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#CPU_AMD_Ryzen_5_5600H">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Processor"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_AMD"/>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3,30</has_frequency>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="CPU_AMD_Ryzen_5_5600H_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3.30</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
         <has_number_of_cores rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</has_number_of_cores>
     </owl:NamedIndividual>
     
@@ -1216,7 +1490,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#CPU_Intel_Celeron_N3350">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Processor"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Intel"/>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1,1</has_frequency>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="CPU_Intel_Celeron_N3350_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.1</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
         <has_number_of_cores rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</has_number_of_cores>
     </owl:NamedIndividual>
     
@@ -1227,7 +1507,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#CPU_Intel_Celeron_N4020">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Processor"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Intel"/>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1,1</has_frequency>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="CPU_Intel_Celeron_N4020_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.1</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
         <has_number_of_cores rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</has_number_of_cores>
     </owl:NamedIndividual>
     
@@ -1238,7 +1524,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#CPU_Intel_Core_M3_8100Y">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Processor"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Intel"/>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1,10</has_frequency>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="CPU_Intel_Core_M3_8100Y_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.10</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
         <has_number_of_cores rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</has_number_of_cores>
     </owl:NamedIndividual>
     
@@ -1249,7 +1541,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#CPU_Intel_Core_i3_1005G1">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Processor"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Intel"/>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1,20</has_frequency>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="CPU_Intel_Core_i3_1005G1_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.20</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
         <has_number_of_cores rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</has_number_of_cores>
     </owl:NamedIndividual>
     
@@ -1260,7 +1558,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#CPU_Intel_Core_i3_10110U">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Processor"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Intel"/>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2,10</has_frequency>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="CPU_Intel_Core_i3_10110U_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.10</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
         <has_number_of_cores rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</has_number_of_cores>
     </owl:NamedIndividual>
     
@@ -1271,7 +1575,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#CPU_Intel_Core_i3_1115G4">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Processor"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Intel"/>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3,00</has_frequency>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="CPU_Intel_Core_i3_1115G4_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3.00</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
         <has_number_of_cores rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</has_number_of_cores>
     </owl:NamedIndividual>
     
@@ -1282,7 +1592,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#CPU_Intel_Core_i5_10210U">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Processor"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Intel"/>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1,60</has_frequency>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="CPU_Intel_Core_i5_10210U_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.60</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
         <has_number_of_cores rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</has_number_of_cores>
     </owl:NamedIndividual>
     
@@ -1293,7 +1609,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#CPU_Intel_Core_i5_10300H">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Processor"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Intel"/>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2,50</has_frequency>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="CPU_Intel_Core_i5_10300H_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.50</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
         <has_number_of_cores rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</has_number_of_cores>
     </owl:NamedIndividual>
     
@@ -1304,7 +1626,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#CPU_Intel_Core_i5_1035G1">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Processor"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Intel"/>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1,00</has_frequency>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="CPU_Intel_Core_i5_1035G1_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.00</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
         <has_number_of_cores rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</has_number_of_cores>
     </owl:NamedIndividual>
     
@@ -1315,7 +1643,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#CPU_Intel_Core_i5_11300H">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Processor"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Intel"/>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3,10</has_frequency>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="CPU_Intel_Core_i5_11300H_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3.10</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
         <has_number_of_cores rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</has_number_of_cores>
     </owl:NamedIndividual>
     
@@ -1326,7 +1660,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#CPU_Intel_Core_i5_1135G7">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Processor"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Intel"/>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2,40</has_frequency>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="CPU_Intel_Core_i5_1135G7_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.40</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
         <has_number_of_cores rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</has_number_of_cores>
     </owl:NamedIndividual>
     
@@ -1337,7 +1677,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#CPU_Intel_Core_i7_10510U">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Processor"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Intel"/>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1,80</has_frequency>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="CPU_Intel_Core_i7_10510U_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.80</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
         <has_number_of_cores rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</has_number_of_cores>
     </owl:NamedIndividual>
     
@@ -1348,7 +1694,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#CPU_Intel_Core_i7_10750H">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Processor"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Intel"/>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2,60</has_frequency>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="CPU_Intel_Core_i7_10750H_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.60</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
         <has_number_of_cores rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</has_number_of_cores>
     </owl:NamedIndividual>
     
@@ -1359,7 +1711,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#CPU_Intel_Core_i7_1165G7">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Processor"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Intel"/>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2,80</has_frequency>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="CPU_Intel_Core_i7_1165G7_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.80</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
         <has_number_of_cores rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</has_number_of_cores>
     </owl:NamedIndividual>
     
@@ -1370,7 +1728,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#CPU_Qualcomm_Snapdragon_7C">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Processor"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_Qualcomm"/>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2,40</has_frequency>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="CPU_Qualcomm_Snapdragon_7C_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.40</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
         <has_number_of_cores rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</has_number_of_cores>
     </owl:NamedIndividual>
     
@@ -1405,7 +1769,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Display_11.6inch_HD_IPS">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#IPS_display"/>
         <has_resolution rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution_HD_1366x768"/>
-        <has_diagonal_size rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11,6</has_diagonal_size>
+        <has_diagonal_size>
+			<rdf:Description rdf:nodeID="Display_11.6inch_HD_IPS_size">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/inch-International"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.6</om:hasNumericalValue>
+			</rdf:Description>
+		</has_diagonal_size>
     </owl:NamedIndividual>
     
 
@@ -1415,7 +1785,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Display_11.6inch_HD_TN">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#TN_display"/>
         <has_resolution rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution_HD_1366x768"/>
-        <has_diagonal_size rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11,6</has_diagonal_size>
+        <has_diagonal_size>
+			<rdf:Description rdf:nodeID="Display_11.6inch_HD_TN_size">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/inch-International"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.6</om:hasNumericalValue>
+			</rdf:Description>
+		</has_diagonal_size>
     </owl:NamedIndividual>
     
 
@@ -1425,7 +1801,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Display_13.3inch_FHD_IPS">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#IPS_display"/>
         <has_resolution rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution_FHD"/>
-        <has_diagonal_size rdf:datatype="http://www.w3.org/2001/XMLSchema#float">13,3</has_diagonal_size>
+        <has_diagonal_size>
+			<rdf:Description rdf:nodeID="Display_13.3inch_FHD_IPS_size">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/inch-International"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">13.3</om:hasNumericalValue>
+			</rdf:Description>
+		</has_diagonal_size>
     </owl:NamedIndividual>
     
 
@@ -1435,7 +1817,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Display_13.5inch_2K_IPS">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#IPS_display"/>
         <has_resolution rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution_2K"/>
-        <has_diagonal_size rdf:datatype="http://www.w3.org/2001/XMLSchema#float">13,5</has_diagonal_size>
+        <has_diagonal_size>
+			<rdf:Description rdf:nodeID="Display_13.5inch_2K_IPS_size">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/inch-International"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">13.5</om:hasNumericalValue>
+			</rdf:Description>
+		</has_diagonal_size>
     </owl:NamedIndividual>
     
 
@@ -1445,7 +1833,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Display_13.9inch_3K_IPS">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#IPS_display"/>
         <has_resolution rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution_3K"/>
-        <has_diagonal_size rdf:datatype="http://www.w3.org/2001/XMLSchema#float">13,9</has_diagonal_size>
+        <has_diagonal_size>
+			<rdf:Description rdf:nodeID="Display_13.9inch_3K_IPS_size">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/inch-International"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">13.9</om:hasNumericalValue>
+			</rdf:Description>
+		</has_diagonal_size>
     </owl:NamedIndividual>
     
 
@@ -1455,7 +1849,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Display_13inch_2K_IPS">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#IPS_display"/>
         <has_resolution rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution_2K"/>
-        <has_diagonal_size rdf:datatype="http://www.w3.org/2001/XMLSchema#float">13</has_diagonal_size>
+        <has_diagonal_size>
+			<rdf:Description rdf:nodeID="Display_13inch_2K_IPS_size">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/inch-International"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">13</om:hasNumericalValue>
+			</rdf:Description>
+		</has_diagonal_size>
     </owl:NamedIndividual>
     
 
@@ -1465,7 +1865,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Display_14.2inch_2K_LTPS">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#LTPS_display"/>
         <has_resolution rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution_2K"/>
-        <has_diagonal_size rdf:datatype="http://www.w3.org/2001/XMLSchema#float">14,2</has_diagonal_size>
+        <has_diagonal_size>
+			<rdf:Description rdf:nodeID="Display_14.2inch_2K_LTPS_size">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/inch-International"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">14.2</om:hasNumericalValue>
+			</rdf:Description>
+		</has_diagonal_size>
     </owl:NamedIndividual>
     
 
@@ -1475,7 +1881,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Display_14inch_FHD_IPS">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#IPS_display"/>
         <has_resolution rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution_FHD"/>
-        <has_diagonal_size rdf:datatype="http://www.w3.org/2001/XMLSchema#float">14</has_diagonal_size>
+        <has_diagonal_size>
+			<rdf:Description rdf:nodeID="Display_14inch_FHD_IPS_size">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/inch-International"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">14</om:hasNumericalValue>
+			</rdf:Description>
+		</has_diagonal_size>
     </owl:NamedIndividual>
     
 
@@ -1485,7 +1897,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Display_14inch_FHD_TN">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#TN_display"/>
         <has_resolution rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution_FHD"/>
-        <has_diagonal_size rdf:datatype="http://www.w3.org/2001/XMLSchema#float">14</has_diagonal_size>
+        <has_diagonal_size>
+			<rdf:Description rdf:nodeID="Display_14inch_FHD_TN_size">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/inch-International"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">14</om:hasNumericalValue>
+			</rdf:Description>
+		</has_diagonal_size>
     </owl:NamedIndividual>
     
 
@@ -1495,7 +1913,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Display_15.6inch_FHD_IPS">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#IPS_display"/>
         <has_resolution rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution_FHD"/>
-        <has_diagonal_size rdf:datatype="http://www.w3.org/2001/XMLSchema#float">15,6</has_diagonal_size>
+        <has_diagonal_size>
+			<rdf:Description rdf:nodeID="Display_15.6inch_FHD_IPS_size">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/inch-International"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">15.6</om:hasNumericalValue>
+			</rdf:Description>
+		</has_diagonal_size>
     </owl:NamedIndividual>
     
 
@@ -1505,7 +1929,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Display_15.6inch_FHD_TN">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#TN_display"/>
         <has_resolution rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution_FHD"/>
-        <has_diagonal_size rdf:datatype="http://www.w3.org/2001/XMLSchema#float">15,6</has_diagonal_size>
+        <has_diagonal_size>
+			<rdf:Description rdf:nodeID="Display_15.6inch_FHD_TN_size">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/inch-International"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">15.6</om:hasNumericalValue>
+			</rdf:Description>
+		</has_diagonal_size>
     </owl:NamedIndividual>
     
 
@@ -1515,7 +1945,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Display_15.6inch_HD_TN">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#TN_display"/>
         <has_resolution rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution_HD_1366x768"/>
-        <has_diagonal_size rdf:datatype="http://www.w3.org/2001/XMLSchema#float">15,6</has_diagonal_size>
+        <has_diagonal_size>
+			<rdf:Description rdf:nodeID="Display_15.6inch_HD_TN_size">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/inch-International"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">15.6</om:hasNumericalValue>
+			</rdf:Description>
+		</has_diagonal_size>
     </owl:NamedIndividual>
     
 
@@ -1525,7 +1961,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Display_17.3inch_FHD_IPS">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#IPS_display"/>
         <has_resolution rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution_FHD"/>
-        <has_diagonal_size rdf:datatype="http://www.w3.org/2001/XMLSchema#float">17,3</has_diagonal_size>
+        <has_diagonal_size>
+			<rdf:Description rdf:nodeID="Display_17.3inch_FHD_IPS_size">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/inch-International"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">17.3</om:hasNumericalValue>
+			</rdf:Description>
+		</has_diagonal_size>
     </owl:NamedIndividual>
     
 
@@ -1644,7 +2086,13 @@
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Graphics_card"/>
         <has_dedicated rdf:resource="https://aceofwands.github.io/laptops#RAM_GDDR5_1253MHz_2GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_NVIDIA"/>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1122</has_frequency>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="GPU_NVIDIA_GeForce_MX130_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/megahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1122</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
     </owl:NamedIndividual>
     
 
@@ -1655,7 +2103,13 @@
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Graphics_card"/>
         <has_dedicated rdf:resource="https://aceofwands.github.io/laptops#RAM_GDDR5_1253MHz_2GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_NVIDIA"/>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1518</has_frequency>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="GPU_NVIDIA_GeForce_MX250_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/megahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1518</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
     </owl:NamedIndividual>
     
 
@@ -1667,7 +2121,13 @@
         <has_dedicated rdf:resource="https://aceofwands.github.io/laptops#RAM_GDDR6_1500MHz_4GB"/>
         <has_port rdf:resource="https://aceofwands.github.io/laptops#GPU_NVIDIA_GeForce_RTX_3050_Ti_4GB_ports_group"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_NVIDIA"/>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">735</has_frequency>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="GPU_NVIDIA_GeForce_RTX_3050_Ti_4GB_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/megahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">735</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
     </owl:NamedIndividual>
     
 
@@ -1688,7 +2148,13 @@
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Graphics_card"/>
         <has_dedicated rdf:resource="https://aceofwands.github.io/laptops#RAM_GDDR5_1250MHz_4GB"/>
         <produced_by rdf:resource="https://aceofwands.github.io/laptops#Manufacturer_NVIDIA"/>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1395</has_frequency>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="GPU_NVIDIA_Quadro_T1000_MaxQ_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/megahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1395</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
     </owl:NamedIndividual>
     
 
@@ -1706,7 +2172,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#HDD_1TB">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Optical_drive"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1024</has_capacity>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="HDD_1TB_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigabyte"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1024</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
     </owl:NamedIndividual>
     
 
@@ -5865,8 +6337,20 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#RAM_DDR3_2133MHz_16GB">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#DDR3_memory_module"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Soldered_memory_module"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</has_capacity>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2133</has_frequency>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="RAM_DDR3_2133MHz_16GB_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigabyte"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="RAM_DDR3_2133MHz_16GB_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/megahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2133</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
     </owl:NamedIndividual>
     
 
@@ -5876,8 +6360,20 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#RAM_DDR4_2133MHz_8GB">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#DDR4_memory_module"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Soldered_memory_module"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</has_capacity>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2133</has_frequency>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="RAM_DDR4_2133MHz_8GB_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigabyte"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="RAM_DDR4_2133MHz_8GB_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/megahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2133</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
     </owl:NamedIndividual>
     
 
@@ -5887,8 +6383,20 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#RAM_DDR4_2400MHz_16GB">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#DDR4_memory_module"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Soldered_memory_module"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</has_capacity>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2400</has_frequency>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="RAM_DDR4_2400MHz_16GB_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigabyte"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="RAM_DDR4_2400MHz_16GB_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/megahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2400</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
     </owl:NamedIndividual>
     
 
@@ -5898,8 +6406,20 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#RAM_DDR4_2400MHz_4GB">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#DDR4_memory_module"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Soldered_memory_module"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</has_capacity>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2400</has_frequency>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="RAM_DDR4_2400MHz_4GB_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigabyte"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="RAM_DDR4_2400MHz_4GB_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/megahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2400</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
     </owl:NamedIndividual>
     
 
@@ -5909,8 +6429,20 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#RAM_DDR4_2400MHz_8GB">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#DDR4_memory_module"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Soldered_memory_module"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</has_capacity>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2400</has_frequency>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="RAM_DDR4_2400MHz_8GB_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigabyte"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="RAM_DDR4_2400MHz_8GB_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/megahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2400</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
     </owl:NamedIndividual>
     
 
@@ -5920,8 +6452,20 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#RAM_DDR4_2400MHz_8GB_SODIMM">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#DDR4_memory_module"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#SO-DIMM_memory_module"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</has_capacity>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2400</has_frequency>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="RAM_DDR4_2400MHz_8GB_SODIMM_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigabyte"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="RAM_DDR4_2400MHz_8GB_SODIMM_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/megahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2400</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
     </owl:NamedIndividual>
     
 
@@ -5931,8 +6475,20 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#RAM_DDR4_2666MHz_16GB_SODIMM">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#DDR4_memory_module"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#SO-DIMM_memory_module"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</has_capacity>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2666</has_frequency>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="RAM_DDR4_2666MHz_16GB_SODIMM_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigabyte"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="RAM_DDR4_2666MHz_16GB_SODIMM_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/megahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2666</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
     </owl:NamedIndividual>
     
 
@@ -5942,8 +6498,20 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#RAM_DDR4_2666MHz_8GB">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#DDR4_memory_module"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Soldered_memory_module"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</has_capacity>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2666</has_frequency>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="RAM_DDR4_2666MHz_8GB_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigabyte"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="RAM_DDR4_2666MHz_8GB_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/megahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2666</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
     </owl:NamedIndividual>
     
 
@@ -5953,8 +6521,20 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#RAM_DDR4_2933MHz_8GB">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#DDR4_memory_module"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Soldered_memory_module"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</has_capacity>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2933</has_frequency>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="RAM_DDR4_2933MHz_8GB_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigabyte"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="RAM_DDR4_2933MHz_8GB_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/megahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2933</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
     </owl:NamedIndividual>
     
 
@@ -5964,8 +6544,20 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#RAM_DDR4_3200MHz_4GB">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#DDR4_memory_module"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Soldered_memory_module"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</has_capacity>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3200</has_frequency>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="RAM_DDR4_3200MHz_4GB_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigabyte"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="RAM_DDR4_3200MHz_4GB_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/megahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3200</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
     </owl:NamedIndividual>
     
 
@@ -5975,8 +6567,20 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#RAM_DDR4_3200MHz_8GB">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#DDR4_memory_module"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Soldered_memory_module"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</has_capacity>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3200</has_frequency>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="RAM_DDR4_3200MHz_8GB_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigabyte"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="RAM_DDR4_3200MHz_8GB_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/megahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3200</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
     </owl:NamedIndividual>
     
 
@@ -5986,8 +6590,20 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#RAM_DDR4_3200MHz_8GB_SODIMM">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#DDR4_memory_module"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#SO-DIMM_memory_module"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</has_capacity>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3200</has_frequency>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="RAM_DDR4_3200MHz_8GB_SODIMM_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigabyte"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="RAM_DDR4_3200MHz_8GB_SODIMM_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/megahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3200</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
     </owl:NamedIndividual>
     
 
@@ -5997,8 +6613,20 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#RAM_GDDR5_1250MHz_4GB">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#GDDR5_memory_module"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Soldered_memory_module"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</has_capacity>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1250</has_frequency>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="RAM_GDDR5_1250MHz_4GB_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigabyte"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="RAM_GDDR5_1250MHz_4GB_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/megahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1250</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
     </owl:NamedIndividual>
     
 
@@ -6008,8 +6636,20 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#RAM_GDDR5_1253MHz_2GB">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#GDDR5_memory_module"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Soldered_memory_module"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</has_capacity>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1253</has_frequency>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="RAM_GDDR5_1253MHz_2GB_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigabyte"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="RAM_GDDR5_1253MHz_2GB_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/megahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1253</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
     </owl:NamedIndividual>
     
 
@@ -6019,8 +6659,20 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#RAM_GDDR6_1500MHz_4GB">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#GDDR6_memory_module"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Soldered_memory_module"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</has_capacity>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1500</has_frequency>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="RAM_GDDR6_1500MHz_4GB_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigabyte"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="RAM_GDDR6_1500MHz_4GB_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/megahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1500</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
     </owl:NamedIndividual>
     
 
@@ -6030,8 +6682,20 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#RAM_LPDDR3_1867MHz_8GB">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#LPDDR4_memory_module"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Soldered_memory_module"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</has_capacity>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1867</has_frequency>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="RAM_LPDDR3_1867MHz_8GB_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigabyte"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="RAM_LPDDR3_1867MHz_8GB_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/megahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1867</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
     </owl:NamedIndividual>
     
 
@@ -6041,8 +6705,20 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#RAM_LPDDR4X_4266MHz_16GB">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#LPDDR4X_memory_module"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Soldered_memory_module"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</has_capacity>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4266</has_frequency>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="RAM_LPDDR4X_4266MHz_16GB_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigabyte"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="RAM_LPDDR4X_4266MHz_16GB_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/megahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4266</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
     </owl:NamedIndividual>
     
 
@@ -6052,8 +6728,20 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#RAM_LPDDR4X_4266MHz_8GB">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#LPDDR4X_memory_module"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Soldered_memory_module"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</has_capacity>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4266</has_frequency>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="RAM_LPDDR4X_4266MHz_8GB_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigabyte"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="RAM_LPDDR4X_4266MHz_8GB_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/megahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4266</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
     </owl:NamedIndividual>
     
 
@@ -6063,8 +6751,20 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#RAM_LPDDR4_1866MHz_4GB">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#LPDDR4_memory_module"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Soldered_memory_module"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</has_capacity>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1866</has_frequency>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="RAM_LPDDR4_1866MHz_4GB_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigabyte"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="RAM_LPDDR4_1866MHz_4GB_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/megahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1866</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
     </owl:NamedIndividual>
     
 
@@ -6074,8 +6774,20 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#RAM_LPDDR4_2400MHz_4GB">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#LPDDR4_memory_module"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Soldered_memory_module"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</has_capacity>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2400</has_frequency>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="RAM_LPDDR4_2400MHz_4GB_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigabyte"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="RAM_LPDDR4_2400MHz_4GB_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/megahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2400</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
     </owl:NamedIndividual>
     
 
@@ -6085,8 +6797,20 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#RAM_LPDDR4_2400MHz_8GB">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#LPDDR4_memory_module"/>
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Soldered_memory_module"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</has_capacity>
-        <has_frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2400</has_frequency>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="RAM_LPDDR4_2400MHz_8GB_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigabyte"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
+        <has_frequency>
+			<rdf:Description rdf:nodeID="RAM_LPDDR4_2400MHz_8GB_frequency">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/megahertz"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2400</om:hasNumericalValue>
+			</rdf:Description>
+		</has_frequency>
     </owl:NamedIndividual>
     
 
@@ -6095,7 +6819,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#SSD_1TB">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#SSD"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1024</has_capacity>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="SSD_1TB_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigabyte"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1024</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
     </owl:NamedIndividual>
     
 
@@ -6104,7 +6834,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#SSD_256GB">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#SSD"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">256</has_capacity>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="SSD_256GB_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigabyte"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">256</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
     </owl:NamedIndividual>
     
 
@@ -6113,7 +6849,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#SSD_32GB">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#SSD"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</has_capacity>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="SSD_32GB_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigabyte"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
     </owl:NamedIndividual>
     
 
@@ -6122,7 +6864,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#SSD_512GB">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#SSD"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">512</has_capacity>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="SSD_512GB_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigabyte"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">512</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
     </owl:NamedIndividual>
     
 
@@ -6131,8 +6879,20 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_2K">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1504</has_height>
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2256</has_width>
+        <has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1504</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>
+        <has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_2K_width">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2256</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>2K</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6142,8 +6902,20 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_3K">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2200</has_height>
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3300</has_width>
+        <has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_3K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2200</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>
+        <has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_3K_width">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3300</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>3K</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6153,8 +6925,20 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_4K_UHD">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2160</has_height>
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3840</has_width>
+        <has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_4K_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2160</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>
+        <has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_4K_width">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3840</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>4K Ultra HD</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6164,8 +6948,20 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_FHD">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1080</has_height>
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1920</has_width>
+        <has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_FHD_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1080</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>
+        <has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_FHD_width">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1920</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>Full HD</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6175,8 +6971,20 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_HD_1360x768">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">768</has_height>
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1360</has_width>
+        <has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_HD_1_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">768</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>
+        <has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_HD_1_width">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1360</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>HD (1360x768)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6186,8 +6994,20 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_HD_1366x768">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">768</has_height>
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1366</has_width>
+        <has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_HD_2_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">768</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>
+        <has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_HD_2_width">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1366</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>HD (1366x768)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6197,8 +7017,20 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_QHD">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1440</has_height>
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2560</has_width>
+		<has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_QHD_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1440</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>
+		<has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_QHD_width">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2560</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>Quad HD</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6208,8 +7040,20 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_QWXGA">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1152</has_height>
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2048</has_width>
+		<has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_QWXGA_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1152</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>
+		<has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_QWXGA_width">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2048</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>QWXGA</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6219,8 +7063,20 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_SVGA">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">600</has_height>
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">800</has_width>
+		<has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_SVGA_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">600</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>
+		<has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_SVGA_width">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">800</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>SVGA</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6230,8 +7086,20 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_SXGA">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1024</has_height>
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1280</has_width>
+		<has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_SXGA_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1024</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>
+		<has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_SXGA_width">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1280</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>SXGA</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6241,8 +7109,20 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_WQHD">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1440</has_height>
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3440</has_width>
+		<has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_WQHD_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1440</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>
+		<has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_WQHD_width">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3440</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>WQHD</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6252,8 +7132,20 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_WUXGA">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1200</has_height>
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1920</has_width>
+		<has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_WUXGA_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1200</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>
+		<has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_WUXGA_width">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1920</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>WUXGA</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6263,8 +7155,20 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_WXGA">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">800</has_height>
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1280</has_width>
+		<has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_WXGA_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">800</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>
+		<has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_WXGA_width">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1280</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>WXGA</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6274,8 +7178,20 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_XGA">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">768</has_height>
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1024</has_width>
+		<has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_XGA_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">768</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>
+		<has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_XGA_width">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1024</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>XGA</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6285,8 +7201,20 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_nHD">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">360</has_height>
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">640</has_width>
+        <has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_nHD_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">360</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>
+        <has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_nHD_width">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">640</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>nHD</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6296,7 +7224,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#eMMC_32GB">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#eMMC"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</has_capacity>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="eMMC_32GB_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigabyte"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
     </owl:NamedIndividual>
     
 
@@ -6305,7 +7239,13 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#eMMC_64GB">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#eMMC"/>
-        <has_capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">64</has_capacity>
+        <has_capacity>
+			<rdf:Description rdf:nodeID="eMMC_64GB_capacity">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/gigabyte"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">64</om:hasNumericalValue>
+			</rdf:Description>
+		</has_capacity>
     </owl:NamedIndividual>
     
 
@@ -6315,7 +7255,13 @@
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Display_17.3inch_HD+_TN">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#TN_display"/>
         <has_resolution rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution_HD+"/>
-        <has_diagonal_size rdf:datatype="http://www.w3.org/2001/XMLSchema#float">17,3</has_diagonal_size>
+        <has_diagonal_size>
+			<rdf:Description rdf:nodeID="Display_17.3inch_HD_plus_TN_size">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/inch-International"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">17.3</om:hasNumericalValue>
+			</rdf:Description>
+		</has_diagonal_size>
     </owl:NamedIndividual>
     
 
@@ -6324,8 +7270,20 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_HD+">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">900</has_height>
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1600</has_width>
+        <has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_HD_plus_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">900</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>
+        <has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_HD_plus_width">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1600</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>HD+</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6335,8 +7293,20 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_WSXGA+">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1050</has_height>
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1680</has_width>
+        <has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_WSXGA_plus_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1050</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>
+        <has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_WSXGA_plus_width">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1680</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>WSXGA+</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6346,8 +7316,20 @@
 
     <owl:NamedIndividual rdf:about="https://aceofwands.github.io/laptops#Screen_resolution_WXGA+">
         <rdf:type rdf:resource="https://aceofwands.github.io/laptops#Screen_resolution"/>
-        <has_height rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">900</has_height>
-        <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1440</has_width>
+        <has_height>
+			<rdf:Description rdf:nodeID="Screen_resolution_WXGA_plus_height">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">900</om:hasNumericalValue>
+			</rdf:Description>
+		</has_height>
+        <has_width>
+			<rdf:Description rdf:nodeID="Screen_resolution_WXGA_plus_width">
+				<rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+				<om:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/pixel"/>
+				<om:hasNumericalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1440</om:hasNumericalValue>
+			</rdf:Description>
+		</has_width>
         <rdfs:label>WXGA+</rdfs:label>
     </owl:NamedIndividual>
     
